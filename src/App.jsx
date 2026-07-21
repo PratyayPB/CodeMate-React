@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import Resources from "./pages/Resources";
 import Alumni from "./pages/Alumni";
 import AlumniViewAll from "./pages/AlumniViewAll";
+import NotFound from "./pages/NotFound";
 
 import Footer from "./components/Footer";
 
@@ -86,6 +87,7 @@ function App() {
           <Route path="/Alumni" element={<Alumni />} />
           <Route path="/AlumniViewAll" element={<AlumniViewAll />} />
           <Route path="/Resources" element={<Resources />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />
