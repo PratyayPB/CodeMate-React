@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CodeMate Events — Build. Connect. Grow.</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <div id="nav-dots"></div>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="grid-bg">
+        <svg id="hero-grid" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div
+        class="orb"
+        style="
+          width: 420px;
+          height: 420px;
+          background: rgba(255, 107, 0, 0.07);
+          top: 15%;
+          left: 8%;
+        "
+      ></div>
+      <div
+        class="orb"
+        style="
+          width: 300px;
+          height: 300px;
+          background: rgba(255, 107, 0, 0.05);
+          bottom: 15%;
+          right: 8%;
+        "
+      ></div>
+      <div style="position: relative; z-index: 1; max-width: 900px">
+        <div class="hero-badge fade-up">
+          <div class="badge-dot"></div>
+          <span class="badge-text">Build. Connect. Grow.</span>
+        </div>
+        <h1 class="fade-up">CodeMate<br /><span>Events</span></h1>
+        <p class="fade-up">
+          A journey of innovation, collaboration, hackathons, workshops, and
+          unforgettable tech experiences.
+        </p>
+        <div class="hero-btns fade-up">
+          <button class="btn-primary" onclick="scrollToEvents()">
+            Explore Events
+          </button>
+          <button class="btn-secondary" onclick="scrollToFooter()">
+            Join CodeMate
+          </button>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-hint-inner"><div class="scroll-hint-dot"></div></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events-section">
+      <div class="sec-head fade-up">
+        <div class="sec-label">
+          <div class="sec-line"></div>
+          <span class="sec-tag">CodeMate</span>
+        </div>
+        <h2 class="sec-title">Events &amp; Experiences</h2>
+        <p class="sec-sub">
+          From hackathons to summits — every event is a chapter in our
+          collective story.
+        </p>
+      </div>
+      <div class="events-grid" id="events-grid"></div>
+    </section>
+
+    <!-- DETAIL -->
+    <section id="detail-section">
+      <div class="grid-bg">
+        <svg id="detail-grid" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div id="detail-inner">
+        <div class="sec-head fade-up">
+          <div class="sec-label">
+            <div class="sec-line"></div>
+            <span class="sec-tag">CodeMate</span>
+          </div>
+          <h2 class="sec-title">Event Deep Dive</h2>
+          <p class="sec-sub">
+            Click any event card above to explore it in detail.
+          </p>
+        </div>
+        <div id="detail-placeholder">
+          <div class="ph-icon">⚡</div>
+          <p>Select an event above to see details</p>
+        </div>
+        <div id="detail-content"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <div id="chatbot-container"></div>
+  </body>
+</html>
