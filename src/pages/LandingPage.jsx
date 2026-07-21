@@ -4,6 +4,7 @@ import Members from '../components/Members';
 import Events from '../components/Events';
 import Impact from '../components/Impact';
 import Chatbot from '../components/Chatbot';
+import ResourcesPreview from '../components/ResourcesPreview';
 
 const LandingPage = () => {
     return (
@@ -29,6 +30,7 @@ const LandingPage = () => {
                         <rect strokeWidth="0" width="39" height="39" x="401" y="601" />
                     </svg>
                 </svg>
+                <ResourcesPreview />
                 <Members />
                 <Events />
                 <Impact />

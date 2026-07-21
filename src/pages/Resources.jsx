@@ -39,7 +39,7 @@ const ResourcesViewAll = () => {
   };
 
   return (
-    <div className=" text-on-surface font-sans selection:bg-primary-container/30 min-h-screen">
+    <div className=" max-w-[80vw] text-on-surface font-sans selection:bg-primary-container/30 min-h-screen">
       {/* Main Content */}
       <main className="pt-24 kinetic-grid">
         {/* Hero Section */}

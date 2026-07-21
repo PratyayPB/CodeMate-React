@@ -41,7 +41,7 @@ export const resourceList = [
   {
     id: "gre-preparation-guide",
     category: "HIGHER STUDIES",
-    type: "Link",
+    type: "Download",
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop",
     title: "GRE Preparation Guide",
@@ -49,7 +49,7 @@ export const resourceList = [
       "A complete and structured guide to help you prepare efficiently from start to finish. A curated collection of trusted resources covering the exam and high-level practice.",
     authorInitials: "CM",
     authorName: "CodeMate Team",
-    link: "#",
+    link: "/resources-data/GRE_Preparation_Guide.pdf",
   },
   {
     id: "resume-building-handbook",
@@ -63,8 +63,14 @@ export const resourceList = [
     authorInitials: "CM",
     authorName: "CodeMate Team",
     link: [
-      { label: "Selected Resume", url: "/resources-data/Selected_Gowtham-Siddartha-CV-Resume.pdf" },
-      { label: "Rejected Resume", url: "/resources-data/Rejected_Gowtham-Siddartha-CV-Resume.pdf" },
+      {
+        label: "Selected Resume",
+        url: "/resources-data/Selected_Gowtham-Siddartha-CV-Resume.pdf",
+      },
+      {
+        label: "Rejected Resume",
+        url: "/resources-data/Rejected_Gowtham-Siddartha-CV-Resume.pdf",
+      },
     ],
   },
   {
