@@ -9,6 +9,7 @@ import AlumniViewAll from "./pages/AlumniViewAll";
 import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
 
+import ChatWindow from "./components/Chat/ChatWindow";
 import Footer from "./components/Footer";
 
 function App() {
@@ -92,6 +93,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      <ChatWindow />
       <Footer />
     </div>
   );

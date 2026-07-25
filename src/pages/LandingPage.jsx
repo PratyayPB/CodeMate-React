@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import Members from '../components/Members';
 import Events from '../components/Events';
 import Impact from '../components/Impact';
-import Chatbot from '../components/Chatbot';
 import ResourcesPreview from '../components/ResourcesPreview';
 
 const LandingPage = () => {
@@ -35,7 +34,6 @@ const LandingPage = () => {
                 <Events />
                 <Impact />
             </div>
-            <Chatbot />
         </main>
     );
 };

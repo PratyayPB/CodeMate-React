@@ -5,30 +5,38 @@ import { Ratelimit } from '@upstash/ratelimit';
 
 // Configure transformers to use /tmp for caching models on Vercel Serverless
 env.cacheDir = '/tmp';
-// Disable local models to ensure it fetches from HF Hub
 env.allowLocalModels = false;
 
-// Initialize Upstash Redis & Ratelimiter
-const redis = new Redis({
-  url: process.env.CodeMateRAG_KV_REST_API_URL,
-  token: process.env.CodeMateRAG_KV_REST_API_TOKEN,
-});
+// Initialize Upstash Redis & Ratelimiter if credentials are available
+let ratelimit = null;
+if (process.env.CodeMateRAG_KV_REST_API_URL && process.env.CodeMateRAG_KV_REST_API_TOKEN) {
+  const redis = new Redis({
+    url: process.env.CodeMateRAG_KV_REST_API_URL,
+    token: process.env.CodeMateRAG_KV_REST_API_TOKEN,
+  });
 
-// Create a sliding window ratelimiter (10 requests per hour per IP)
-const ratelimit = new Ratelimit({
-  redis: redis,
-  limiter: Ratelimit.slidingWindow(10, "1 h"),
-});
+  // Sliding window ratelimiter (20 requests per minute per IP)
+  ratelimit = new Ratelimit({
+    redis: redis,
+    limiter: Ratelimit.slidingWindow(20, "1 m"),
+  });
+}
 
 // Cache the embedding pipeline outside the handler for warm starts
 let generateEmbedding = null;
 
-// Initialize Pinecone
-const pc = new Pinecone({
-  apiKey: process.env.PINECONE_API_KEY
-});
-const indexName = process.env.PINECONE_INDEX_NAME || 'codemate-index';
-const index = pc.Index(indexName);
+// Initialize Pinecone client lazily
+let pc = null;
+function getPineconeIndex() {
+  if (!pc) {
+    if (!process.env.PINECONE_API_KEY) {
+      throw new Error("PINECONE_API_KEY is not configured.");
+    }
+    pc = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
+  }
+  const indexName = process.env.PINECONE_INDEX_NAME || 'codemate-index';
+  return pc.Index(indexName);
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -37,76 +45,110 @@ export default async function handler(req, res) {
 
   try {
     // 1. Rate Limiting
-    const ip = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '127.0.0.1';
-    const { success, limit, remaining, reset } = await ratelimit.limit(ip);
-    
-    // Set headers for rate limit info
-    res.setHeader('X-RateLimit-Limit', limit);
-    res.setHeader('X-RateLimit-Remaining', remaining);
-    res.setHeader('X-RateLimit-Reset', reset);
+    if (ratelimit) {
+      const ip = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '127.0.0.1';
+      const { success, limit, remaining, reset } = await ratelimit.limit(ip);
+      
+      res.setHeader('X-RateLimit-Limit', limit);
+      res.setHeader('X-RateLimit-Remaining', remaining);
+      res.setHeader('X-RateLimit-Reset', reset);
 
-    if (!success) {
-      return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+      if (!success) {
+        return res.status(429).json({ error: 'Rate limit exceeded: 20 requests per minute. Please wait a moment before asking another question.' });
+      }
     }
 
-    // 2. Parse User Query
-    const { message } = req.body;
-    if (!message) {
-      return res.status(400).json({ error: 'Message is required' });
+    // 2. Parse User Query & History
+    const { message, history } = req.body || {};
+    if (!message || typeof message !== 'string' || !message.trim()) {
+      return res.status(400).json({ error: 'Message is required and must be non-empty string.' });
     }
 
-    // 3. Generate Embedding
+    // 3. Generate Embedding using all-MiniLM-L6-v2
     if (!generateEmbedding) {
       generateEmbedding = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
     }
     const output = await generateEmbedding(message, { pooling: 'mean', normalize: true });
     const embeddingArray = Array.from(output.data);
 
-    // 4. Query Pinecone
+    // 4. Query Pinecone (retrieve top 5 relevant chunks)
+    const index = getPineconeIndex();
     const queryResponse = await index.query({
       vector: embeddingArray,
-      topK: 3,
+      topK: 5,
       includeMetadata: true
     });
     
-    const context = queryResponse.matches.map(m => m.metadata.text).join('\n\n');
+    const matches = queryResponse.matches || [];
+    const context = matches.map(m => m.metadata?.text || '').filter(Boolean).join('\n\n---\n\n');
+    
+    // Prepare source attributions
+    const sources = matches.map(m => ({
+      text: m.metadata?.text ? (m.metadata.text.substring(0, 150) + '...') : 'Knowledge Chunk',
+      score: Math.round((m.score || 0) * 100) / 100
+    }));
 
-    // 5. Query OpenRouter API
-    const systemPrompt = `You are a helpful and friendly assistant for CodeMate, a tech community. 
-Your goal is to answer questions about CodeMate based strictly on the provided context. 
-If the answer is not in the context, politely say that you don't have that information.
-Keep your answers concise, professional, and friendly.
+    // 5. Construct System Prompt & Messages with Memory
+    const systemPrompt = `You are the official AI assistant for CodeMate, the student-led technology community of NEHU, Shillong.
 
-Context:
-${context}`;
+CRITICAL INSTRUCTIONS:
+- Answer ONLY using the supplied context below.
+- If the information is not available in the context, politely respond: "I don't have that specific information in my CodeMate knowledge base. Feel free to contact Team CodeMate directly!"
+- Do NOT make up facts or hallucinate details not present in the context.
+- Be concise, accurate, friendly, and professional.
+- Format your response clearly using markdown formatting where helpful (bullet points, bold text, etc.).
+
+SUPPLIED CONTEXT:
+${context || "No context found."}`;
+
+    // Include up to 6 recent conversation history items
+    const formattedHistory = Array.isArray(history) 
+      ? history.slice(-6).map(h => ({
+          role: h.role === 'user' ? 'user' : 'assistant',
+          content: String(h.content || '')
+        }))
+      : [];
+
+    const llmMessages = [
+      { role: "system", content: systemPrompt },
+      ...formattedHistory,
+      { role: "user", content: message }
+    ];
+
+    // 6. Call OpenRouter API
+    const openRouterKey = process.env.OPENROUTER_API_KEY;
+    if (!openRouterKey) {
+      throw new Error("OPENROUTER_API_KEY is not configured.");
+    }
 
     const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json"
+        "Authorization": `Bearer ${openRouterKey}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://codematenehu.vercel.app",
+        "X-Title": "CodeMate AI Assistant"
       },
       body: JSON.stringify({
         model: "google/gemma-4-31b-it:free",
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: message }
-        ]
+        messages: llmMessages,
+        temperature: 0.3
       })
     });
 
     if (!openRouterResponse.ok) {
       const errText = await openRouterResponse.text();
-      throw new Error(`OpenRouter API error: ${openRouterResponse.status} ${errText}`);
+      console.error(`OpenRouter API error (${openRouterResponse.status}):`, errText);
+      return res.status(502).json({ error: 'LLM service is currently unavailable. Please try again in a moment.' });
     }
 
     const data = await openRouterResponse.json();
-    const answer = data.choices[0].message.content;
+    const answer = data.choices?.[0]?.message?.content || "Sorry, I couldn't process an answer.";
 
-    return res.status(200).json({ answer });
+    return res.status(200).json({ answer, sources });
 
   } catch (error) {
     console.error('Chat API Error:', error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 }
