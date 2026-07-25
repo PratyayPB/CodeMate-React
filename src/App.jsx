@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import Resources from "./pages/Resources";
 import Alumni from "./pages/Alumni";
 import AlumniViewAll from "./pages/AlumniViewAll";
+import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
 
 import Footer from "./components/Footer";
@@ -55,8 +56,8 @@ function App() {
             {
               label: "Events",
               ariaLabel: "View events",
-              link: "#events",
-              onClick: () => handleNavClick("/", "events"),
+              link: "#",
+              onClick: () => handleNavClick("/events"),
             },
             {
               label: "Community",
@@ -87,6 +88,7 @@ function App() {
           <Route path="/Alumni" element={<Alumni />} />
           <Route path="/AlumniViewAll" element={<AlumniViewAll />} />
           <Route path="/Resources" element={<Resources />} />
+          <Route path="/events" element={<EventsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
