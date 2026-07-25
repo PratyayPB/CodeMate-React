@@ -25,10 +25,27 @@ async function main() {
     const kbPath = path.join(__dirname, '../knowledge/codemate_knowledge.md');
     const content = fs.readFileSync(kbPath, 'utf8');
 
-    // Simple chunking strategy: split by double newline (paragraphs/sections)
-    const chunks = content.split('\n\n')
-        .map(c => c.trim())
-        .filter(c => c.length > 20); // ignore very small or empty chunks
+    // Normalize line endings
+    const normalized = content.replace(/\r\n/g, '\n');
+
+    // Smart chunking strategy: split by headers (##) or multiple newlines
+    const rawChunks = normalized.split(/\n(?=## )|\n\n+/);
+
+    const chunks = [];
+    for (let raw of rawChunks) {
+        const trimmed = raw.trim();
+        if (trimmed.length < 20) continue;
+
+        // If a single section is too long (> 2000 chars), split it into smaller sub-chunks
+        if (trimmed.length > 2000) {
+            const subChunks = trimmed.match(/[\s\S]{1,1800}(?:\n|\.|$)/g) || [trimmed];
+            subChunks.forEach(sc => {
+                if (sc.trim().length > 20) chunks.push(sc.trim());
+            });
+        } else {
+            chunks.push(trimmed);
+        }
+    }
 
     console.log(`Created ${chunks.length} chunks. Generating embeddings...`);
     
