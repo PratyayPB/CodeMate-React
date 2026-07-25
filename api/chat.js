@@ -115,35 +115,59 @@ ${context || "No context found."}`;
       { role: "user", content: message }
     ];
 
-    // 6. Call OpenRouter API
+    // 6. Call OpenRouter API with Fallback Model Support
     const openRouterKey = process.env.OPENROUTER_API_KEY;
     if (!openRouterKey) {
       throw new Error("OPENROUTER_API_KEY is not configured.");
     }
 
-    const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${openRouterKey}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://codematenehu.vercel.app",
-        "X-Title": "CodeMate AI Assistant"
-      },
-      body: JSON.stringify({
-        model: "google/gemma-4-31b-it:free",
-        messages: llmMessages,
-        temperature: 0.3
-      })
-    });
+    const CANDIDATE_MODELS = [
+      "google/gemma-4-31b-it:free",
+      "meta-llama/llama-3.3-70b-instruct:free",
+      "deepseek/deepseek-r1:free",
+      "qwen/qwen-2.5-72b-instruct:free",
+      "mistralai/mistral-7b-instruct:free"
+    ];
 
-    if (!openRouterResponse.ok) {
-      const errText = await openRouterResponse.text();
-      console.error(`OpenRouter API error (${openRouterResponse.status}):`, errText);
-      return res.status(502).json({ error: 'LLM service is currently unavailable. Please try again in a moment.' });
+    let answer = null;
+    let lastError = null;
+
+    for (const model of CANDIDATE_MODELS) {
+      try {
+        const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${openRouterKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://codematenehu.vercel.app",
+            "X-Title": "CodeMate AI Assistant"
+          },
+          body: JSON.stringify({
+            model: model,
+            messages: llmMessages,
+            temperature: 0.3
+          })
+        });
+
+        if (openRouterResponse.ok) {
+          const data = await openRouterResponse.json();
+          answer = data.choices?.[0]?.message?.content;
+          if (answer) break; // Successfully retrieved an answer!
+        } else {
+          const errText = await openRouterResponse.text();
+          console.warn(`OpenRouter model ${model} failed (${openRouterResponse.status}): ${errText}`);
+          lastError = errText;
+        }
+      } catch (err) {
+        console.warn(`Error trying OpenRouter model ${model}:`, err);
+        lastError = err.message;
+      }
     }
 
-    const data = await openRouterResponse.json();
-    const answer = data.choices?.[0]?.message?.content || "Sorry, I couldn't process an answer.";
+    if (!answer) {
+      console.error('All candidate LLM models failed. Last error:', lastError);
+      return res.status(502).json({ error: 'All free LLM providers are currently busy. Please try again in a few seconds.' });
+    }
 
     return res.status(200).json({ answer, sources });
 
