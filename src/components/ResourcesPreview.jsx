@@ -22,7 +22,7 @@ const ResourcesPreview = () => {
                         </div>
                         <h3>Higher Studies Prep</h3>
                         <p>Prepare for exams like GATE/GRE/GMAT/IELTS etc.</p>
-                        <Link to="/Resources" className="card-link">View More</Link>
+                        <Link to="/Resources?category=HIGHER STUDIES" state={{ category: "HIGHER STUDIES" }} className="card-link">View More</Link>
                     </div>
                     
                     <div className="resource-card reveal">
@@ -31,7 +31,7 @@ const ResourcesPreview = () => {
                         </div>
                         <h3>Placement Prep Materials</h3>
                         <p>Learn from resources prepared by CodeMate</p>
-                        <Link to="/Resources" className="card-link">View More</Link>
+                        <Link to="/Resources?category=PLACEMENTS" state={{ category: "PLACEMENTS" }} className="card-link">View More</Link>
                     </div>
                     
                     <div className="resource-card reveal">

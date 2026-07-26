@@ -1,15 +1,31 @@
-import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight, Download } from "lucide-react";
 import { resourceList } from "../components/data/resourceData";
 
 const ResourcesViewAll = () => {
   const navigate = useNavigate();
-  const [activeFilter, setActiveFilter] = useState("All Resources");
+  const location = useLocation();
 
   const uniqueCategories = Array.from(
     new Set(resourceList.map((item) => item.category)),
   );
+
+  const [activeFilter, setActiveFilter] = useState("All Resources");
+
+  useEffect(() => {
+    const queryCat =
+      new URLSearchParams(location.search).get("category") ||
+      location.state?.category;
+    if (queryCat) {
+      const matched = uniqueCategories.find(
+        (cat) => cat.toLowerCase() === queryCat.toLowerCase()
+      );
+      if (matched) {
+        setActiveFilter(matched);
+      }
+    }
+  }, [location]);
   const filters = [
     { label: "All Resources", value: "All Resources" },
     ...uniqueCategories.map((cat) => ({

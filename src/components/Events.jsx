@@ -7,7 +7,7 @@ import gsap from "gsap";
 const eventsData = [
   {
     tag: "Webinar",
-    img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600",
+    img: "/assets/resume/21.jpg",
     date: "Sun 12 Apr 2026",
     location: "Online",
     title: "Resume Building Webinar",
@@ -15,7 +15,7 @@ const eventsData = [
   },
   {
     tag: "Coding Competition",
-    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600",
+    img: "/assets/codefest3/17.jpeg",
     date: "Sun 10 Nov 2025",
     location: "Offline",
     title: "Codefest 3.0",
@@ -23,7 +23,7 @@ const eventsData = [
   },
   {
     tag: "Orientation",
-    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600",
+    img: "/assets/orientation1/9.png",
     date: "Sun 10 Sep 2025",
     location: "Offline",
     title: "Orientation 2025",
@@ -31,7 +31,7 @@ const eventsData = [
   },
   {
     tag: "Sports/E-Sports",
-    img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600",
+    img: "/assets/hostelhavoc/13.jpg",
     date: "Sun 16 May 2025",
     location: "Offline",
     title: "Hostel Havoc",

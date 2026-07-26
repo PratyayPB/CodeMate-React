@@ -19,8 +19,6 @@ import {
   Award,
   ChevronRight,
   ArrowRight,
-  Send,
-  Paperclip,
   Sparkles,
 } from "lucide-react";
 
@@ -66,73 +64,6 @@ const Alumni = () => {
         "Our alumni chapters span across the globe, fostering a strong network of professionals, innovators, and mentors who continue to support and inspire the CodeMate community.",
       icon: <Globe className="h-6 w-6 text-white" />,
     },
-  };
-
-  // Chat State for "Ask & Get Answers" section
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: "ai",
-      text: "Hi student! I'm CodeMate's AI Alumni coordinator. How can I help you connect with our alumni? What do you want to know?",
-    },
-  ]);
-  const [inputVal, setInputVal] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputVal.trim()) return;
-
-    const userMessage = {
-      id: messages.length + 1,
-      sender: "user",
-      text: inputVal,
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
-    setInputVal("");
-    setIsTyping(true);
-
-    // Simulated responses from alumni / AI coordinator
-    setTimeout(() => {
-      let replyText =
-        "That's a great question! I'd recommend reaching out to Rahul Mishra (Software Engineer at Google) or Ananya Sen (Product Manager at Meta). They are active mentors in our Slack workspace.";
-
-      const lowerInput = userMessage.text.toLowerCase();
-      if (
-        lowerInput.includes("google") ||
-        lowerInput.includes("software") ||
-        lowerInput.includes("tech")
-      ) {
-        replyText =
-          "Rahul Mishra (SWE @ Google) mentions: 'Focus heavily on data structures, algorithms, and system design. Make sure to participate in open source projects to make your resume stand out.'";
-      } else if (
-        lowerInput.includes("abroad") ||
-        lowerInput.includes("studies") ||
-        lowerInput.includes("mit") ||
-        lowerInput.includes("ms")
-      ) {
-        replyText =
-          "Vikram Singh (Research @ MIT) shares: 'Start working on research publications early. Strong recommendation letters from professors who know your work personally are crucial for top universities.'";
-      } else if (
-        lowerInput.includes("startup") ||
-        lowerInput.includes("founder") ||
-        lowerInput.includes("business")
-      ) {
-        replyText =
-          "Priya Sharma (Co-founder @ Decent) advises: 'Don't wait for the perfect idea. Build a simple MVP, launch it to actual users, collect feedback, and iterate. Community support is everything.'";
-      }
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: prev.length + 1,
-          sender: "ai",
-          text: replyText,
-        },
-      ]);
-      setIsTyping(false);
-    }, 1200);
   };
 
   return (
@@ -329,7 +260,7 @@ const Alumni = () => {
             {alumniData.map((alumnus, idx) => (
               <div
                 key={idx}
-                onClick={() => window.open(alumnus.linkedin, '_blank')}
+                onClick={() => window.open(alumnus.linkedin, "_blank")}
                 className="group flex flex-col gap-4 cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/60 shadow-sm aspect-square">
@@ -350,129 +281,6 @@ const Alumni = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. ASK & GET ANSWERS SECTION */}
-      {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-white border border-zinc-200/80 p-8 sm:p-12 md:p-16 shadow-2xl">
-          {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-            <h2 className="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 uppercase">
-              Ask & Get Answers
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-zinc-500 leading-relaxed">
-              Ask a question and get answers from our alumni network. You can
-              also explore answers to questions asked by other students.
-            </p>
-          </div>
-
-          {/* Interactive Chat Mockup Container */}
-          <div className="max-w-3xl mx-auto rounded-2xl border border-zinc-200 bg-zinc-50 overflow-hidden shadow-2xl flex flex-col h-[480px]">
-            {/* macOS Styling Header Bar */}
-            <div className="bg-zinc-100 border-b border-zinc-200 px-5 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <div className="h-3 w-3 rounded-full bg-[#ff5f56]" />
-                <div className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
-                <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
-              </div>
-              <div className="text-xs font-semibold text-zinc-650 font-sans tracking-wide">
-                CodeMate Alumni Assistant
-              </div>
-              <div className="w-12" /> {/* Spacer */}
-            </div>
-
-            {/* Chat Messages Log */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-4 font-sans text-sm">
-              {messages.map((msg) => {
-                const isAi = msg.sender === "ai";
-                return (
-                  <div
-                    key={msg.id}
-                    className={`flex gap-3 max-w-[85%] ${isAi ? "self-start" : "self-end ml-auto flex-row-reverse"}`}
-                  >
-                    {/* Avatar */}
-                    <div
-                      className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold ${
-                        isAi
-                          ? "bg-brand-primary text-black"
-                          : "bg-zinc-200 text-zinc-700"
-                      }`}
-                    >
-                      {isAi ? "CM" : "ME"}
-                    </div>
-
-                    {/* Bubble */}
-                    <div
-                      className={`p-4 rounded-2xl leading-relaxed ${
-                        isAi
-                          ? "bg-white border border-zinc-200 text-zinc-700 rounded-tl-sm"
-                          : "bg-brand-primary text-black font-medium rounded-tr-sm shadow-md shadow-brand-primary/5"
-                      }`}
-                    >
-                      {msg.text}
-                    </div>
-                  </div>
-                );
-              })}
-
-              {/* Typing indicator */}
-              {isTyping && (
-                <div className="flex gap-3 max-w-[85%] self-start">
-                  <div className="h-8 w-8 rounded-full bg-brand-primary text-black flex items-center justify-center shrink-0 text-xs font-bold">
-                    CM
-                  </div>
-                  <div className="bg-white border border-zinc-200 p-4 rounded-2xl rounded-tl-sm flex items-center gap-1">
-                    <div
-                      className="h-1.5 w-1.5 bg-zinc-400 rounded-full animate-bounce"
-                      style={{ animationDelay: "0ms" }}
-                    />
-                    <div
-                      className="h-1.5 w-1.5 bg-zinc-400 rounded-full animate-bounce"
-                      style={{ animationDelay: "150ms" }}
-                    />
-                    <div
-                      className="h-1.5 w-1.5 bg-zinc-400 rounded-full animate-bounce"
-                      style={{ animationDelay: "300ms" }}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Chat Input Footer Form */}
-            <form
-              onSubmit={handleSendMessage}
-              className="bg-zinc-100 border-t border-zinc-200 px-4 py-3 flex items-center gap-3"
-            >
-              <button
-                type="button"
-                className="text-zinc-500 hover:text-zinc-800 transition-colors p-1"
-                aria-label="Attach file"
-              >
-                <Paperclip className="h-5 w-5" />
-              </button>
-
-              <input
-                type="text"
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
-                placeholder="Ask a question (e.g. 'How to get into Google?', 'Higher studies abroad')"
-                className="flex-1 bg-white border border-zinc-200 rounded-xl px-4 py-2.5 text-zinc-800 placeholder-zinc-400 text-xs sm:text-sm focus:outline-none focus:border-brand-primary/60 font-sans"
-              />
-
-              <button
-                type="submit"
-                disabled={!inputVal.trim()}
-                className="bg-brand-primary disabled:opacity-40 text-black hover:bg-brand-primary-dark transition-all duration-200 text-xs font-bold px-4 py-2.5 rounded-xl shadow-md flex items-center gap-1.5 cursor-pointer disabled:cursor-not-allowed"
-              >
-                <span>Ask Alumni</span>
-                <Send className="h-3 w-3" />
-              </button>
-            </form>
           </div>
         </div>
       </section>

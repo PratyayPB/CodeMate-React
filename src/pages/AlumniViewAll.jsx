@@ -76,10 +76,9 @@ const AlumniViewAll = () => {
         {/* Back Link */}
         <button
           onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-900 transition-colors duration-200 text-sm font-semibold mb-8 cursor-pointer"
+          className="fixed top-20  sm:left-8 z-1000 inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-zinc-200/80 shadow-lg text-zinc-700 hover:text-zinc-900 hover:bg-white hover:shadow-xl transition-all duration-200 text-sm font-semibold cursor-pointer"
         >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Alumni Dashboard
+          <ArrowLeft className="h-4 w-4 text-brand-primary" />
         </button>
 
         <div className="space-y-2">

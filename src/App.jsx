@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 
 import ChatWindow from "./components/Chat/ChatWindow";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -21,7 +22,10 @@ function App() {
     navigate(route);
     if (sectionId) {
       setTimeout(() => {
-        const element = document.getElementById(sectionId);
+        let element = document.getElementById(sectionId);
+        if (!element && sectionId === "about") {
+          element = document.querySelector(".scroll-box-container");
+        }
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
@@ -31,16 +35,27 @@ function App() {
 
   return (
     <div className="min-h-screen bg-brand-dark flex flex-col items-center  justify-between">
+      <ScrollToTop />
       <div>
         <StaggeredMenu
           position="right"
           isFixed={true}
+          onLogoClick={() => {
+            handleNavClick("/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           items={[
             {
               label: "Home",
               ariaLabel: "Go to home page",
               link: "#home",
               onClick: () => handleNavClick("/", "home"),
+            },
+            {
+              label: "About",
+              ariaLabel: "About CodeMate",
+              link: "#about",
+              onClick: () => handleNavClick("/", "about"),
             },
             {
               label: "Resources",
@@ -63,8 +78,8 @@ function App() {
             {
               label: "Community",
               ariaLabel: "Join community",
-              link: "#impact",
-              onClick: () => handleNavClick("/", "impact"),
+              link: "https://linktr.ee/codemate_club_nehu",
+              onClick: () => window.open("https://linktr.ee/codemate_club_nehu", "_blank"),
             },
           ]}
           socialItems={[

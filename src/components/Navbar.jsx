@@ -13,6 +13,7 @@ const Navbar = ({ currentPage = "resources", setCurrentPage }) => {
 
   const navLinks = [
     { name: "Home", id: "alumni" },
+    { name: "About", id: "about" },
     { name: "Resources", id: "resources" },
     { name: "Events", id: "events" },
     { name: "Community", id: "community" },
@@ -20,6 +21,10 @@ const Navbar = ({ currentPage = "resources", setCurrentPage }) => {
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
+    if (id === "community") {
+      window.open("https://linktr.ee/codemate_club_nehu", "_blank");
+      return;
+    }
     if (id === "resources" || id === "alumni") {
       setCurrentPage(id);
       setIsOpen(false);
@@ -33,7 +38,10 @@ const Navbar = ({ currentPage = "resources", setCurrentPage }) => {
           {/* Logo Section */}
           <div
             className="flex items-center gap-2 cursor-pointer"
-            onClick={() => setCurrentPage("alumni")}
+            onClick={() => {
+              setCurrentPage("home");
+              window.location.href = "/";
+            }}
           >
             <img src={Logo} alt="Brand Logo" width={150} height={150} />
           </div>

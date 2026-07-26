@@ -11,6 +11,7 @@ export const StaggeredMenu = ({
   displayItemNumbering = true,
   className,
   logoUrl = '/src/assets/logos/reactbits-gh-white.svg',
+  onLogoClick,
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
   accentColor = '#5227FF',
@@ -369,7 +370,12 @@ export const StaggeredMenu = ({
         })()}
       </div>
       <header className="staggered-menu-header" aria-label="Main navigation header">
-        <div className="sm-logo" aria-label="Logo">
+        <div 
+          className="sm-logo" 
+          aria-label="Logo" 
+          onClick={onLogoClick} 
+          style={{ cursor: onLogoClick ? 'pointer' : 'default' }}
+        >
           <img
             src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
             alt="Logo"

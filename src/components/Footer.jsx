@@ -51,9 +51,9 @@ export default function Footer() {
             {/* Newsletter Visual */}
             <div className="hidden md:block relative rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80"
-                alt="Community"
-                className="w-full h-100 object-cover rounded-2xl opacity-85"
+                src="/images/footer-map.png"
+                alt="Location Map"
+                className="w-full h-full object-center rounded-2xl opacity-85"
               />
             </div>
           </div>
