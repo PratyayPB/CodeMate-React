@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight, Download } from "lucide-react";
-import { resourceList } from "../components/data/resourceData";
+import { resourceList } from "../data/resourceData";
 
 const ResourcesViewAll = () => {
   const navigate = useNavigate();

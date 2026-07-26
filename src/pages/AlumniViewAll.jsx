@@ -20,7 +20,7 @@ import {
   higherStudiesIndiaList,
   abroadList,
   entrepreneurList,
-} from "../components/data/alumniData";
+} from "../data/alumniData";
 
 const AlumniViewAll = () => {
   const navigate = useNavigate();

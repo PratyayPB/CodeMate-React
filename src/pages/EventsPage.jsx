@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { EVENTS } from "../data/eventsData";
@@ -14,11 +15,30 @@ const EventsPage = () => {
   const [selectedEventId, setSelectedEventId] = useState(null);
   const gridRef = useRef(null);
   const detailRef = useRef(null);
+  const location = useLocation();
 
-  // Scroll to top on page mount
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    const passedEventId =
+      location.state?.eventId ||
+      new URLSearchParams(location.search).get("eventId");
+
+    if (passedEventId) {
+      const id = Number(passedEventId);
+      setSelectedEventId(id);
+
+      setTimeout(() => {
+        if (detailRef.current) {
+          gsap.to(window, {
+            scrollTo: { y: detailRef.current, offsetY: 0 },
+            duration: 0.9,
+            ease: "power3.inOut",
+          });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   const handleSelectEvent = (id) => {
     setSelectedEventId(id);

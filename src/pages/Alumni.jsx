@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import {
   placementList,
   higherStudiesIndiaList,
-} from "../components/data/alumniData";
+} from "../data/alumniData";
 import {
   Briefcase,
   GraduationCap,

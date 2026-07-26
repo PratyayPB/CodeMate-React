@@ -6,6 +6,7 @@ import gsap from "gsap";
 
 const eventsData = [
   {
+    eventId: 6,
     tag: "Webinar",
     img: "/assets/resume/21.jpg",
     date: "Sun 12 Apr 2026",
@@ -14,6 +15,7 @@ const eventsData = [
     desc: "Learn from our Alumni. Get insider tips and craft a resume that stands out to top-tier tech companies.",
   },
   {
+    eventId: 5,
     tag: "Coding Competition",
     img: "/assets/codefest3/17.jpeg",
     date: "Sun 10 Nov 2025",
@@ -22,6 +24,7 @@ const eventsData = [
     desc: "Coding Competition at NEHU. Test your algorithmic skills, solve complex problems, and win amazing prizes.",
   },
   {
+    eventId: 3,
     tag: "Orientation",
     img: "/assets/orientation1/9.png",
     date: "Sun 10 Sep 2025",
@@ -30,6 +33,7 @@ const eventsData = [
     desc: "Introduction to CodeMate for new students. Kickstart your journey, discover our community, and find your peers.",
   },
   {
+    eventId: 4,
     tag: "Sports/E-Sports",
     img: "/assets/hostelhavoc/13.jpg",
     date: "Sun 16 May 2025",
@@ -114,10 +118,7 @@ const Events = () => {
               </div>
 
               <div style={{ marginTop: "3rem" }}>
-                <Link
-                  to="/eventSection"
-                  className="btn btn-secondary text-white"
-                >
+                <Link to="/events" className="btn btn-secondary text-white">
                   View All
                 </Link>
               </div>
@@ -152,9 +153,9 @@ const Events = () => {
                     </div>
                     <h1 className="text-4xl font-extrabold ">{event.title}</h1>
                     <p className="text-lg">{event.desc}</p>
-                    <a href="#" className="event-link">
+                    <Link to="/events" state={{ eventId: event.eventId }} className="event-link">
                       View Event <ChevronRight size={16} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

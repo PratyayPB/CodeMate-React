@@ -31,7 +31,7 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
       );
 
       const img = contentRef.current.querySelector("#detail-img");
@@ -39,23 +39,39 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
         gsap.fromTo(
           img,
           { scale: 1.1 },
-          { scale: 1, duration: 0.9, ease: "power3.out" }
+          { scale: 1, duration: 0.9, ease: "power3.out" },
         );
       }
     }
   }, [event?.id]);
 
-  const currentIndex = event ? allEvents.findIndex((e) => e.id === event.id) : -1;
+  const currentIndex = event
+    ? allEvents.findIndex((e) => e.id === event.id)
+    : -1;
   const prevEvent = currentIndex > 0 ? allEvents[currentIndex - 1] : null;
-  const nextEvent = currentIndex >= 0 && currentIndex < allEvents.length - 1 ? allEvents[currentIndex + 1] : null;
+  const nextEvent =
+    currentIndex >= 0 && currentIndex < allEvents.length - 1
+      ? allEvents[currentIndex + 1]
+      : null;
 
   return (
-    <section id="detail-section" ref={detailRef}>
+    <section
+      id="detail-section"
+      ref={detailRef}
+      className="max-w-[80vw] mt-30 mb-20 rounded-2xl"
+    >
       <div className="grid-bg">
-        <svg id="detail-grid" ref={svgRef} xmlns="http://www.w3.org/2000/svg"></svg>
+        <svg
+          id="detail-grid"
+          ref={svgRef}
+          xmlns="http://www.w3.org/2000/svg"
+        ></svg>
       </div>
-      <div id="detail-inner">
-        <div className="sec-head fade-up" style={{ opacity: 1, transform: "none" }}>
+      <div id="detail-inner " className="px-20 py-15">
+        <div
+          className="sec-head fade-up"
+          style={{ opacity: 1, transform: "none" }}
+        >
           <div className="sec-label">
             <div className="sec-line"></div>
             <span className="sec-tag">CodeMate</span>
@@ -72,7 +88,11 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
             <p>Select an event above to see details</p>
           </div>
         ) : (
-          <div id="detail-content" ref={contentRef} style={{ display: "block" }}>
+          <div
+            id="detail-content"
+            ref={contentRef}
+            style={{ display: "block" }}
+          >
             <div className="detail-banner">
               <img src={event.img} alt={event.name} id="detail-img" />
               <div className="detail-banner-overlay"></div>
@@ -124,7 +144,10 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
                     <div key={idx} className="speaker-pill">
                       <div
                         className="speaker-av"
-                        style={{ background: `${event.color}20`, color: event.color }}
+                        style={{
+                          background: `${event.color}20`,
+                          color: event.color,
+                        }}
                       >
                         {s[0]}
                       </div>
@@ -142,12 +165,15 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
                       ([k, v]) =>
                         v > 0 && (
                           <div key={k} className="stat-card">
-                            <div className="stat-num" style={{ color: event.color }}>
+                            <div
+                              className="stat-num"
+                              style={{ color: event.color }}
+                            >
                               {v}
                             </div>
                             <div className="stat-label">{k}</div>
                           </div>
-                        )
+                        ),
                     )
                   ) : (
                     <p style={{ color: "#aaa", fontSize: "13px" }}>—</p>
@@ -169,9 +195,15 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
                     background: event.color,
                     boxShadow: `0 8px 28px ${event.color}45`,
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-                  onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                  onClick={() => alert(`Registered interest for ${event.name}! 🎉`)}
+                  onMouseOver={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.03)")
+                  }
+                  onMouseOut={(e) =>
+                    (e.currentTarget.style.transform = "scale(1)")
+                  }
+                  onClick={() =>
+                    alert(`Registered interest for ${event.name}! 🎉`)
+                  }
                 >
                   Register Interest →
                 </button>
@@ -187,7 +219,8 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
                 >
                   <span className="arrow-icon">←</span>
                   <span className="arrow-label">
-                    Previous<br />
+                    Previous
+                    <br />
                     <strong>{prevEvent.name}</strong>
                   </span>
                 </button>
@@ -203,7 +236,8 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
                   style={{ borderColor: `${event.color}40` }}
                 >
                   <span className="arrow-label" style={{ textAlign: "right" }}>
-                    Next<br />
+                    Next
+                    <br />
                     <strong>{nextEvent.name}</strong>
                   </span>
                   <span className="arrow-icon" style={{ color: event.color }}>

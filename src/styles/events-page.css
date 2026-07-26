@@ -6,7 +6,7 @@
   --text2: #555555;
   --border: #e8e8e8;
   --radius: 20px;
-  
+
   font-family: "Outfit", sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -164,7 +164,9 @@
   cursor: pointer;
   font-family: "Outfit", sans-serif;
   letter-spacing: 0.5px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .events-page .btn-primary:hover {
@@ -182,7 +184,9 @@
   font-weight: 600;
   cursor: pointer;
   font-family: "Outfit", sans-serif;
-  transition: transform 0.2s, border-color 0.2s;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
 }
 
 .events-page .btn-secondary:hover {
@@ -252,7 +256,11 @@
   border: 1px solid var(--border);
   position: relative;
   cursor: pointer;
-  transition: box-shadow 0.35s, transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), filter 0.4s, opacity 0.4s;
+  transition:
+    box-shadow 0.35s,
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.4s,
+    opacity 0.4s;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   opacity: 0;
   transform: translateY(60px);
@@ -261,13 +269,17 @@
 }
 
 .events-page .event-card:hover {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* Selected: pop out */
 .events-page .event-card.card-selected {
   transform: perspective(900px) rotateX(0deg) rotateY(0deg) scale(1.06) !important;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.22), 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.22),
+    0 8px 24px rgba(0, 0, 0, 0.1) !important;
   z-index: 10;
   border-color: transparent;
 }
@@ -393,7 +405,6 @@
   position: relative;
   overflow: hidden;
   background: var(--bg2);
-  padding: 80px 0 100px;
 }
 
 .events-page #detail-inner {
@@ -435,7 +446,11 @@
 .events-page .detail-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, transparent 65%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65) 0%,
+    transparent 65%
+  );
 }
 
 .events-page .detail-banner-text {
@@ -600,7 +615,9 @@
   cursor: pointer;
   font-family: "Outfit", sans-serif;
   color: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .events-page .detail-cta-btn:hover {
@@ -644,14 +661,21 @@
   padding: 14px 20px;
   cursor: pointer;
   font-family: "Outfit", sans-serif;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.04);
   max-width: 280px;
 }
 
 .events-page .arrow-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.13), 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.13),
+    0 4px 12px rgba(0, 0, 0, 0.06);
   border-color: #bbb;
 }
 
