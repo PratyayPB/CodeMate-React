@@ -60,11 +60,13 @@ export default async function handler(req, res) {
         .json({ error: "Message is required and must be non-empty string." });
     }
 
-    // 2. Check Gemini API Key
-    const geminiApiKey = process.env.GEMINI_API_KEY;
+    // 2. Check & Sanitize Gemini API Key
+    let rawApiKey = process.env.GEMINI_API_KEY || "";
+    const geminiApiKey = rawApiKey.trim().replace(/[\r\n]+/g, "");
+
     if (!geminiApiKey) {
       return res.status(500).json({
-        error: "GEMINI_API_KEY is not configured on the server.",
+        error: "GEMINI_API_KEY is not configured or invalid on the server.",
       });
     }
 
@@ -138,14 +140,14 @@ ${context || "No context found."}`;
       parts: [{ text: message }],
     });
 
-    // 6. Initialize Google Gemini SDK
+    // 6. Initialize Google Gemini SDK with sanitized API key
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
 
-    // Primary and Fallback Models
+    // Candidate models list with fallbacks
     const MODELS = [
       "gemini-3.6-flash",
       "gemini-3.5-flash",
-      "gemini-2.5-flash",
+      "gemini-2.0-flash",
       "gemini-1.5-flash",
     ];
 
