@@ -1,180 +1,191 @@
 import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Mail } from "lucide-react";
 import BrandLogo from "../assets/BrandLogo.png";
 
-const SocialIcon = ({ href, label, children }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label={label}
-    className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#f37f30] hover:text-white hover:border-[#f37f30] transition-all duration-200 shadow-sm"
+const InstagramIcon = ({ size = 22, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
   >
-    {children}
-  </a>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
 );
 
-const FooterLink = ({ href, children }) => (
-  <a
-    href={href}
-    className="text-base text-slate-600 hover:text-[#f37f30] font-medium transition-colors duration-200"
+const DiscordIcon = ({ size = 22, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
   >
-    {children}
-  </a>
+    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+  </svg>
 );
 
-const LegalLink = ({ href, children }) => (
-  <a
-    href={href}
-    className="text-base text-slate-600 hover:text-[#f37f30] font-medium transition-colors duration-200"
+const LinkedinIcon = ({ size = 22, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
   >
-    {children}
-  </a>
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+  </svg>
 );
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F5F5F5] text-[#1A1A1A] font-inter w-full">
-      {/* Newsletter Section */}
-      <div className="pt-12 pb-0 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/4 border border-white/10 backdrop-blur-2xl rounded-3xl p-8 md:p-12 overflow-hidden relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Newsletter Content */}
+    <footer className="bg-white text-zinc-900 font-sans border-t border-zinc-200/60 w-full pt-16 pb-8">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Content Row */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+          {/* Left Column (Brand, Address, Contact) */}
+          <div className="md:col-span-6 lg:col-span-6 space-y-8">
+            {/* Logo */}
             <div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A1A1A] mb-3 md:mb-4 text-[2.5rem]">
-                Stay ahead with CodeMate.
-              </h3>
-              <p className="text-sm md:text-base text-[#1A1A1A] leading-relaxed">
-                Join thousands of students who trust CodeMate for their career
-                and placement prep.
+              <Link to="/">
+                <img
+                  src={BrandLogo}
+                  alt="CodeMate Logo"
+                  className="w-48 md:w-56 object-contain"
+                />
+              </Link>
+            </div>
+
+            {/* Address */}
+            <div className="space-y-1">
+              <h5 className="font-heading text-sm font-semibold text-zinc-900 tracking-wide">
+                Address
+              </h5>
+              <p className="text-sm text-zinc-600 font-normal">
+                SoT, NEHU, Shillong
               </p>
             </div>
 
-            {/* Newsletter Visual */}
-            <div className="hidden md:block relative rounded-2xl overflow-hidden">
-              <img
-                src="/images/footer-map.png"
-                alt="Location Map"
-                className="w-full h-full object-center rounded-2xl opacity-85"
-              />
+            {/* Contact */}
+            <div className="space-y-1">
+              <h5 className="font-heading text-sm font-semibold text-zinc-900 tracking-wide">
+                Contact
+              </h5>
+              <a
+                href="mailto:codemate.nehu@gmail.com"
+                className="text-sm text-zinc-600 hover:text-brand-primary transition-colors font-normal block"
+              >
+                codemate.nehu@gmail.com
+              </a>
+            </div>
+          </div>
+
+          {/* Right Columns (Nav Links) */}
+          <div className="md:col-span-6 lg:col-span-6 grid grid-cols-2 gap-8 md:gap-16 items-start">
+            {/* Column 1 */}
+            <div className="space-y-3.5 flex flex-col">
+              <Link
+                to="/"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                Home
+              </Link>
+              <Link
+                to="/Resources"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                Resources
+              </Link>
+              <Link
+                to="/Alumni"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                Alumni
+              </Link>
+              <Link
+                to="/events"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                Events
+              </Link>
+            </div>
+
+            {/* Column 2 */}
+            <div className="space-y-3.5 flex flex-col">
+              <Link
+                to="/contact"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                Contact us
+              </Link>
+              <a
+                href="/#about"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                About us
+              </a>
+
+              <a
+                href="https://linktr.ee/codemate_club_nehu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-base text-zinc-700 hover:text-brand-primary font-medium transition-colors"
+              >
+                Join us
+              </a>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Grid */}
-      <div className="py-14 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center gap-20 md:gap-32 lg:gap-40 flex-wrap">
-          {/* Brand Column */}
-          <div className="col-span-1">
-            <div className="mb-6 flex items-start">
-              <img
-                src={BrandLogo}
-                alt="CodeMate Logo"
-                className="w-56 md:w-64 object-contain self-start"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
-              />
-            </div>
+        {/* Divider Line */}
+        <div className="border-t border-zinc-300 w-full" />
 
-            <div className="flex gap-2 flex-wrap">
-              {/* Instagram */}
-              <SocialIcon
-                href="https://www.instagram.com/codemate.nehu/"
-                label="Instagram"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </SocialIcon>
-
-              {/* GitHub */}
-              <SocialIcon
-                href="https://github.com/CodeMate-Nehu/"
-                label="GitHub"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-              </SocialIcon>
-
-              {/* LinkedIn */}
-              <SocialIcon
-                href="https://www.linkedin.com/company/codematenehu"
-                label="LinkedIn"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </SocialIcon>
-            </div>
-          </div>
-
-          {/* Contact Us */}
-          <div>
-            <h4 className="text-lg font-bold text-[#1A1A1A] mb-6">
-              Contact Us
-            </h4>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <Mail size={20} className="text-[#f37f30] flex-shrink-0" />
-                <a
-                  href="mailto:codemate.nehu@gmail.com"
-                  className="text-base text-slate-600 hover:text-[#f37f30] font-medium transition-colors duration-200"
-                >
-                  codemate.nehu@gmail.com
-                </a>
-              </li>
-
-              <li className="flex items-center gap-3">
-                <MapPin size={20} className="text-[#f37f30] flex-shrink-0" />
-                <address className="text-base text-slate-600 font-medium not-italic">
-                  Shillong, Meghalaya, India
-                </address>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="bg-[#E5E5E5] border-t border-slate-300 py-6 w-full mt-8">
-        <div className="max-w-[75vw] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="text-base text-slate-700 font-medium">
-            &copy; 2025 CodeMate. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            {["Terms of Service", "Privacy Policy", "Cookie Settings"].map(
-              (label) => (
-                <LegalLink key={label} href="#">
-                  {label}
-                </LegalLink>
-              ),
-            )}
+        {/* Bottom Bar Row */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-zinc-600 font-normal">
+          <div>@2026 CodeMate. All rights reserved</div>
+          <div className="flex items-center gap-5 text-zinc-900">
+            <a
+              href="mailto:codemate.nehu@gmail.com"
+              aria-label="Mail"
+              className="hover:text-brand-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            >
+              <Mail size={22} />
+            </a>
+            <a
+              href="https://linktr.ee/codemate_club_nehu"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Discord"
+              className="hover:text-brand-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            >
+              <DiscordIcon size={22} />
+            </a>
+            <a
+              href="https://www.instagram.com/codemate.nehu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-brand-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            >
+              <InstagramIcon size={22} />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/codematenehu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-brand-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            >
+              <LinkedinIcon size={22} />
+            </a>
           </div>
         </div>
       </div>
