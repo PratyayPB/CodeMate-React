@@ -1,29 +1,10 @@
 import { pipeline, env } from "@xenova/transformers";
 import { Pinecone } from "@pinecone-database/pinecone";
-import { Redis } from "@upstash/redis";
-import { Ratelimit } from "@upstash/ratelimit";
+import { GoogleGenAI } from "@google/genai";
 
 // Configure transformers to use /tmp for caching models on Vercel Serverless
 env.cacheDir = "/tmp";
 env.allowLocalModels = false;
-
-// Initialize Upstash Redis & Ratelimiter if credentials are available
-let ratelimit = null;
-if (
-  process.env.CodeMateRAG_KV_REST_API_URL &&
-  process.env.CodeMateRAG_KV_REST_API_TOKEN
-) {
-  const redis = new Redis({
-    url: process.env.CodeMateRAG_KV_REST_API_URL,
-    token: process.env.CodeMateRAG_KV_REST_API_TOKEN,
-  });
-
-  // Sliding window ratelimiter (20 requests per minute per IP)
-  ratelimit = new Ratelimit({
-    redis: redis,
-    limiter: Ratelimit.slidingWindow(20, "60s"),
-  });
-}
 
 // Cache the embedding pipeline outside the handler for warm starts
 let generateEmbedding = null;
@@ -41,38 +22,50 @@ function getPineconeIndex() {
   return pc.Index(indexName);
 }
 
+/**
+ * Helper to call Gemini model with timeout
+ */
+async function generateWithTimeout(ai, model, contents, systemInstruction, timeoutMs = 15000) {
+  const timeoutPromise = new Promise((_, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(`TIMEOUT: Model ${model} timed out after ${timeoutMs / 1000}s`));
+    }, timeoutMs);
+    // Unref timer if available in node environment
+    if (timer.unref) timer.unref();
+  });
+
+  const apiPromise = ai.models.generateContent({
+    model: model,
+    contents: contents,
+    config: {
+      systemInstruction: systemInstruction,
+      temperature: 0.3,
+    },
+  });
+
+  return Promise.race([apiPromise, timeoutPromise]);
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   try {
-    // 1. Rate Limiting
-    if (ratelimit) {
-      const ip =
-        req.headers["x-forwarded-for"] ||
-        req.socket?.remoteAddress ||
-        "127.0.0.1";
-      const { success, limit, remaining, reset } = await ratelimit.limit(ip);
-
-      res.setHeader("X-RateLimit-Limit", limit);
-      res.setHeader("X-RateLimit-Remaining", remaining);
-      res.setHeader("X-RateLimit-Reset", reset);
-
-      if (!success) {
-        return res.status(429).json({
-          error:
-            "Rate limit exceeded: 20 requests per minute. Please wait a moment before asking another question.",
-        });
-      }
-    }
-
-    // 2. Parse User Query & History
+    // 1. Parse User Query & History
     const { message, history } = req.body || {};
     if (!message || typeof message !== "string" || !message.trim()) {
       return res
         .status(400)
         .json({ error: "Message is required and must be non-empty string." });
+    }
+
+    // 2. Check Gemini API Key
+    const geminiApiKey = process.env.GEMINI_API_KEY;
+    if (!geminiApiKey) {
+      return res.status(500).json({
+        error: "GEMINI_API_KEY is not configured on the server.",
+      });
     }
 
     // 3. Generate Embedding using all-MiniLM-L6-v2
@@ -110,7 +103,7 @@ export default async function handler(req, res) {
       score: Math.round((m.score || 0) * 100) / 100,
     }));
 
-    // 5. Construct System Prompt & Messages with Memory
+    // 5. Construct System Prompt & Messages with Memory (Server-Side Only)
     const systemPrompt = `You are the official AI assistant for CodeMate, the student-led technology community of NEHU, Shillong.
 
 CRITICAL INSTRUCTIONS:
@@ -123,79 +116,80 @@ CRITICAL INSTRUCTIONS:
 SUPPLIED CONTEXT:
 ${context || "No context found."}`;
 
-    // Include up to 6 recent conversation history items
-    const formattedHistory = Array.isArray(history)
-      ? history.slice(-6).map((h) => ({
-          role: h.role === "user" ? "user" : "assistant",
-          content: String(h.content || ""),
-        }))
-      : [];
+    // Format conversation history for Google Gemini SDK format
+    const contents = [];
 
-    const llmMessages = [
-      { role: "system", content: systemPrompt },
-      ...formattedHistory,
-      { role: "user", content: message },
-    ];
-
-    // 6. Call OpenRouter API with Fallback Model Support
-    const openRouterKey = process.env.OPENROUTER_API_KEY;
-    if (!openRouterKey) {
-      throw new Error("OPENROUTER_API_KEY is not configured.");
+    if (Array.isArray(history)) {
+      history.slice(-6).forEach((h) => {
+        const role = h.role === "user" ? "user" : "model";
+        const text = String(h.content || "").trim();
+        if (text) {
+          contents.push({
+            role: role,
+            parts: [{ text: text }],
+          });
+        }
+      });
     }
 
-    const CANDIDATE_MODELS = [
-      "google/gemma-4-31b-it:free",
-      "meta-llama/llama-3.3-70b-instruct:free",
-      "deepseek/deepseek-r1:free",
-      "qwen/qwen-2.5-72b-instruct:free",
-      "mistralai/mistral-7b-instruct:free",
+    // Add current user prompt
+    contents.push({
+      role: "user",
+      parts: [{ text: message }],
+    });
+
+    // 6. Initialize Google Gemini SDK
+    const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+
+    // Primary and Fallback Models
+    const MODELS = [
+      "gemini-3.6-flash",
+      "gemini-3.5-flash",
+      "gemini-2.5-flash",
+      "gemini-1.5-flash",
     ];
 
     let answer = null;
     let lastError = null;
+    let isRateLimited = false;
 
-    for (const model of CANDIDATE_MODELS) {
+    for (const model of MODELS) {
       try {
-        const openRouterResponse = await fetch(
-          "https://openrouter.ai/api/v1/chat/completions",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${openRouterKey}`,
-              "Content-Type": "application/json",
-              "HTTP-Referer": "https://codematenehu.vercel.app",
-              "X-Title": "CodeMate AI Assistant",
-            },
-            body: JSON.stringify({
-              model: model,
-              messages: llmMessages,
-              temperature: 0.3,
-            }),
-          },
-        );
-
-        if (openRouterResponse.ok) {
-          const data = await openRouterResponse.json();
-          answer = data.choices?.[0]?.message?.content;
-          if (answer) break; // Successfully retrieved an answer!
-        } else {
-          const errText = await openRouterResponse.text();
-          console.warn(
-            `OpenRouter model ${model} failed (${openRouterResponse.status}): ${errText}`,
-          );
-          lastError = errText;
+        console.log(`Attempting Gemini model: ${model}`);
+        const response = await generateWithTimeout(ai, model, contents, systemPrompt, 15000);
+        
+        if (response && response.text) {
+          answer = response.text;
+          break; // Success!
         }
       } catch (err) {
-        console.warn(`Error trying OpenRouter model ${model}:`, err);
-        lastError = err.message;
+        const errMessage = err?.message || String(err);
+        console.warn(`Gemini model ${model} failed:`, errMessage);
+        lastError = errMessage;
+
+        if (errMessage.includes("429") || errMessage.toLowerCase().includes("rate limit") || errMessage.toLowerCase().includes("quota")) {
+          isRateLimited = true;
+        }
       }
     }
 
     if (!answer) {
-      console.error("All candidate LLM models failed. Last error:", lastError);
+      console.error("All candidate Gemini models failed. Last error:", lastError);
+
+      if (isRateLimited) {
+        return res.status(429).json({
+          error: "Gemini API rate limit or quota exceeded. Please wait a minute and try again.",
+        });
+      }
+
+      if (lastError && lastError.startsWith("TIMEOUT")) {
+        return res.status(504).json({
+          error: "Response timed out. Please ask a shorter question or try again.",
+        });
+      }
+
       return res.status(502).json({
-        error:
-          "All free LLM providers are currently busy. Please try again in a few seconds.",
+        error: "All Gemini LLM providers are currently busy or unavailable. Please try again shortly.",
       });
     }
 
