@@ -14,7 +14,7 @@ const ContactPage = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+      <div className="relative z-10 max-w-screen-xl mx-auto flex flex-col items-center w-full">
         {/* Header Title */}
         <div className="text-center mb-10 space-y-3">
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-950 leading-tight">
@@ -31,7 +31,7 @@ const ContactPage = () => {
         </div>
 
         {/* Bottom Metric Cards Row */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {/* Card 1: Email Us */}
           <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-zinc-200/70 shadow-sm flex flex-col items-center text-center group hover:shadow-md hover:border-orange-500/40 transition-all duration-200">
             <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 font-bold">

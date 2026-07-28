@@ -65,28 +65,26 @@
    ========================================================================== */
 
 .container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 2rem;
+  @apply max-w-screen-xl mx-auto w-full px-4 sm:px-6 lg:px-8;
 }
 
 .section {
-  padding: 100px 0;
+  @apply py-12 md:py-24;
 }
 
 .section-header {
-  margin-bottom: 4rem;
+  @apply mb-8 md:mb-16;
 }
 
 .section-header-flex {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3rem;
+  @apply mb-8 md:mb-12;
 }
 
 .section-footer {
-  margin-top: 4rem;
+  @apply mt-8 md:mt-16;
 }
 
 .text-center {
@@ -855,10 +853,7 @@
 
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-xl mx-auto;
 }
 
 .resource-card {

@@ -33,7 +33,7 @@ const Impact = () => {
           </p>
         </div>
 
-        <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 justify-center">
+        <div className="w-full max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
           {/* Item 1: Community */}
           <div
             className="bento-item"

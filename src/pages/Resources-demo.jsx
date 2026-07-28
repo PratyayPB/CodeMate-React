@@ -63,7 +63,7 @@ const Resources = () => {
       {/* ========================================================================= */}
       {/* 3. WHAT OTHERS HAVE LEARNED SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto my-50 max-w-[80vw]  py-12 sm:px-6">
+      <section className="relative z-10 mx-auto my-24 max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-zinc-50 p-8 sm:p-12 md:p-16 text-zinc-900 shadow-xl border border-zinc-200/50">
           {/* Header */}
           <div className="mb-10">

@@ -33,7 +33,7 @@ const Navbar = ({ currentPage = "resources", setCurrentPage }) => {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-zinc-200/60 bg-brand-dark/80 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo Section */}
           <div
@@ -82,7 +82,7 @@ const Navbar = ({ currentPage = "resources", setCurrentPage }) => {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-950 focus:outline-none"
+              className="inline-flex items-center justify-center rounded-md p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-950 focus:outline-none min-h-[44px] min-w-[44px]"
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >

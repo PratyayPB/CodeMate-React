@@ -36,7 +36,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#F5F5F5] text-[#1A1A1A] font-inter w-full">
       {/* Newsletter Section */}
-      <div className="px-6 pt-12 pb-0 max-w-[75vw] mx-auto">
+      <div className="pt-12 pb-0 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/4 border border-white/10 backdrop-blur-2xl rounded-3xl p-8 md:p-12 overflow-hidden relative">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Newsletter Content */}
@@ -63,7 +63,7 @@ export default function Footer() {
       </div>
 
       {/* Main Grid */}
-      <div className=" py-14 max-w-[80vw] mx-auto">
+      <div className="py-14 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center gap-20 md:gap-32 lg:gap-40 flex-wrap">
           {/* Brand Column */}
           <div className="col-span-1">
@@ -81,7 +81,10 @@ export default function Footer() {
 
             <div className="flex gap-2 flex-wrap">
               {/* Instagram */}
-              <SocialIcon href="https://www.instagram.com/codemate.nehu/" label="Instagram">
+              <SocialIcon
+                href="https://www.instagram.com/codemate.nehu/"
+                label="Instagram"
+              >
                 <svg
                   width="18"
                   height="18"
@@ -99,7 +102,10 @@ export default function Footer() {
               </SocialIcon>
 
               {/* GitHub */}
-              <SocialIcon href="https://github.com/CodeMate-Nehu/" label="GitHub">
+              <SocialIcon
+                href="https://github.com/CodeMate-Nehu/"
+                label="GitHub"
+              >
                 <svg
                   width="18"
                   height="18"
@@ -111,7 +117,10 @@ export default function Footer() {
               </SocialIcon>
 
               {/* LinkedIn */}
-              <SocialIcon href="https://www.linkedin.com/company/codematenehu" label="LinkedIn">
+              <SocialIcon
+                href="https://www.linkedin.com/company/codematenehu"
+                label="LinkedIn"
+              >
                 <svg
                   width="18"
                   height="18"
@@ -134,10 +143,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-[#f37f30] flex-shrink-0" />
                 <a
-                  href="mailto:hello@codemate.com"
+                  href="mailto:codemate.nehu@gmail.com"
                   className="text-base text-slate-600 hover:text-[#f37f30] font-medium transition-colors duration-200"
                 >
-                  hello@codemate.com
+                  codemate.nehu@gmail.com
                 </a>
               </li>
 

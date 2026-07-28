@@ -106,11 +106,11 @@ const Events = () => {
                 don't miss out — build, connect & grow
               </p>
 
-              <div className="events-nav-dots">
+              <div className="events-nav-dots flex items-center gap-2">
                 {eventsData.map((_, idx) => (
                   <button
                     key={idx}
-                    className={`event-dot ${activeIndex === idx ? "active" : ""}`}
+                    className={`event-dot min-h-[44px] min-w-[44px] flex items-center justify-center ${activeIndex === idx ? "active" : ""}`}
                     aria-label={`View event ${idx + 1}`}
                     onClick={() => handleIndexChange(idx)}
                   ></button>
@@ -127,8 +127,7 @@ const Events = () => {
 
           {/* Right side: Event cards */}
           <div
-            className="events-animated-right relative"
-            style={{ minHeight: "600px" }}
+            className="events-animated-right relative min-h-[480px] sm:min-h-[520px] md:min-h-[600px]"
           >
             {eventsData.map((event, idx) => (
               <div

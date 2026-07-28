@@ -81,14 +81,14 @@ const ResourcesViewAll = () => {
           <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none"></div>
         </section>
         {/* Resources Grid */}
-        <section className="max-w-screen-2xl mx-auto px-8 pb-32">
+        <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
           {/* Filter Bar (Auxiliary) */}
           <div className="flex flex-wrap items-center gap-4 mb-12 border-b border-outline-variant/10 pb-8">
             {filters.map((filter) => (
               <button
                 key={filter.value}
                 onClick={() => setActiveFilter(filter.value)}
-                className={`px-6 py-2 rounded-full font-bold text-sm tracking-tight transition-all cursor-pointer ${
+                className={`px-6 py-2 rounded-full font-bold text-sm tracking-tight transition-all cursor-pointer min-h-[44px] flex items-center justify-center ${
                   activeFilter === filter.value
                     ? "bg-on-surface text-surface"
                     : "bg-surface-container-highest text-on-surface-variant hover:bg-primary-container/10"

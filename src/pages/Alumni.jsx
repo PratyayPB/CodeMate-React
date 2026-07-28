@@ -78,11 +78,11 @@ const Alumni = () => {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-16 sm:px-6 md:pt-28 md:pb-20 lg:px-8">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-16 pb-16 sm:px-6 md:pt-28 md:pb-20 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text */}
           <div className="lg:col-span-6  text-left">
-            <h1 className="font-heading text-6xl font-extrabold tracking-tight text-brand-primary sm:text-4xl lg:text-6xl leading-none">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-primary leading-none">
               Pathways to connect
             </h1>
             <p className="font-sans text-base sm:text-lg text-zinc-650 leading-relaxed max-w-xl">
@@ -112,7 +112,7 @@ const Alumni = () => {
       {/* ========================================================================= */}
       {/* 2. GET TO KNOW (STATS & TABS) SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-zinc-50 p-8 sm:p-12 md:p-16 text-zinc-900 shadow-xl border border-zinc-200/50">
           {/* Top Row: Stats Header & Stat Box Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pb-12 border-b border-zinc-200">
@@ -217,7 +217,7 @@ const Alumni = () => {
                         state: { scrollTo: tabToCategoryMap[activeTab] },
                       })
                     }
-                    className="bg-black text-white hover:bg-zinc-900 transition-colors duration-200 text-xs font-bold px-6 py-2.5 rounded-full shadow-md cursor-pointer"
+                    className="bg-black text-white hover:bg-zinc-900 transition-colors duration-200 text-xs font-bold px-6 py-2.5 min-h-[44px] rounded-full shadow-md cursor-pointer flex items-center justify-center"
                   >
                     View all
                   </button>
@@ -231,7 +231,7 @@ const Alumni = () => {
       {/* ========================================================================= */}
       {/* 3. MEET THE CLUB ALUMNI SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-white border border-zinc-200/80 p-8 sm:p-12 md:p-16 shadow-2xl">
           {/* Header row */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-10 border-b border-zinc-200/60 mb-10">
@@ -263,7 +263,7 @@ const Alumni = () => {
           </div>
 
           {/* Members Grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {alumniData.map((alumnus, idx) => (
               <div
                 key={idx}

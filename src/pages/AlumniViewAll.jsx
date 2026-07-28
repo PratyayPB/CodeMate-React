@@ -91,11 +91,12 @@ const AlumniViewAll = () => {
       {/* ========================================================================= */}
       {/* HEADER SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-6 sm:px-6 lg:px-8">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8">
         {/* Back Link */}
         <button
-          onClick={() => navigate(-1)}
-          className="fixed top-20  sm:left-8 z-1000 inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-zinc-200/80 shadow-lg text-zinc-700 hover:text-zinc-900 hover:bg-white hover:shadow-xl transition-all duration-200 text-sm font-semibold cursor-pointer"
+          onClick={() => navigate("/Alumni")}
+          className="mb-8 inline-flex items-center justify-center rounded-full bg-zinc-100 p-3 hover:bg-zinc-200 transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
+          aria-label="Back to Alumni page"
         >
           <ArrowLeft className="h-4 w-4 text-brand-primary" />
         </button>
@@ -113,7 +114,7 @@ const AlumniViewAll = () => {
       {/* ========================================================================= */}
       {/* DIRECTORY CATEGORIES */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8 space-y-16">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pb-24 sm:px-6 lg:px-8 space-y-16">
         {categories.map((cat) => (
           <div key={cat.id} id={cat.id} className="space-y-6">
             {/* Category Header */}
@@ -134,7 +135,7 @@ const AlumniViewAll = () => {
             </div>
 
             {/* Grid of Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cat.alumni.map((alumnus, idx) => (
                 <div
                   key={idx}

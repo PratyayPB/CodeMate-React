@@ -30,9 +30,9 @@ const Button = ({
   };
 
   const sizes = {
-    sm: "text-xs px-4 py-1.5 rounded-full gap-1.5",
-    md: "text-sm px-6 py-2 rounded-full gap-2",
-    lg: "text-base px-8 py-3 rounded-full gap-2.5",
+    sm: "text-xs px-4 py-1.5 rounded-full gap-1.5 min-h-[44px] min-w-[44px]",
+    md: "text-sm px-6 py-2 rounded-full gap-2 min-h-[44px] min-w-[44px]",
+    lg: "text-base px-8 py-3 rounded-full gap-2.5 min-h-[48px] min-w-[48px]",
   };
 
   const widthStyle = fullWidth ? "w-full" : "";

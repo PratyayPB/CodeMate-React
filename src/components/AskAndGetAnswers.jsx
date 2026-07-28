@@ -24,7 +24,7 @@ const AskAndGetAnswers = () => {
   return (
     <section
       id="ask-and-get-answers-section"
-      className="flex self-center items-center justify-center w-full max-w-[85vw] mx-auto py-12 sm:px-6 lg:px-8"
+      className="flex self-center items-center justify-center w-full max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8"
     >
       <div className="relative rounded-[2.5rem] bg-[#222222] p-8 sm:p-12 md:p-16 shadow-2xl w-full">
         {/* Header */}
@@ -131,7 +131,7 @@ const AskAndGetAnswers = () => {
           >
             <button
               type="button"
-              className="bg-[#3a3a3a] text-[#f98833] hover:text-[#ff9c2a] hover:bg-[#444444] transition-colors p-3.5 rounded-xl flex-shrink-0 shadow-sm"
+              className="bg-[#3a3a3a] text-[#f98833] hover:text-[#ff9c2a] hover:bg-[#444444] transition-colors p-3.5 rounded-xl flex-shrink-0 shadow-sm min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Use Microphone"
             >
               <Mic className="h-5 w-5" />
@@ -149,7 +149,7 @@ const AskAndGetAnswers = () => {
             <button
               type="submit"
               disabled={isLoading || !inputVal.trim()}
-              className="bg-[#f98833] text-black hover:bg-[#ffa050] disabled:bg-[#a6591f] disabled:cursor-not-allowed transition-colors text-xs font-bold px-6 py-4 rounded-xl flex items-center gap-2 flex-shrink-0 tracking-wider shadow-sm"
+              className="bg-[#f98833] text-black hover:bg-[#ffa050] disabled:bg-[#a6591f] disabled:cursor-not-allowed transition-colors text-xs font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 flex-shrink-0 tracking-wider shadow-sm min-h-[44px] min-w-[44px]"
             >
               <span>ENTER</span>
               <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
