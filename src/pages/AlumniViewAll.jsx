@@ -91,7 +91,7 @@ const AlumniViewAll = () => {
       {/* ========================================================================= */}
       {/* HEADER SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-28 sm:pt-32 pb-6 sm:px-6 md:pt-36 lg:px-8">
         {/* Back Link */}
         <button
           onClick={() => navigate("/Alumni")}

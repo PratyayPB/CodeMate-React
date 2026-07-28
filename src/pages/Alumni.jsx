@@ -78,7 +78,7 @@ const Alumni = () => {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
-      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-16 pb-16 sm:px-6 md:pt-28 md:pb-20 lg:px-8">
+      <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-28 sm:pt-32 pb-16 sm:px-6 md:pt-36 md:pb-20 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text */}
           <div className="lg:col-span-6  text-left">
@@ -283,7 +283,7 @@ const Alumni = () => {
                     {alumnus.name}
                   </h4>
                   <p className="font-sans text-xs text-brand-primary mt-1">
-                    {alumnus.role} at {alumnus.company}
+                    {alumnus.role} at {alumnus.company || alumnus.institution}
                   </p>
                 </div>
               </div>

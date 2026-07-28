@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns (Nav Links) */}
-          <div className="md:col-span-6 lg:col-span-6 grid grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="md:col-span-6 lg:col-span-6 grid grid-cols-2 gap-8 md:gap-16 items-start pt-8">
             {/* Column 1 */}
             <div className="space-y-3.5 flex flex-col">
               <Link
@@ -160,7 +160,7 @@ export default function Footer() {
               <Mail size={22} />
             </a>
             <a
-              href="https://linktr.ee/codemate_club_nehu"
+              href="https://discord.com/invite/XkQx7eXBv9"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Discord"
