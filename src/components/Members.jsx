@@ -330,7 +330,7 @@ const Members = () => {
     <section id="members" className="section members-section">
       <div className="container">
         <div id="members-header-wrap" className="members-header">
-          <span className="section-tagline members-tagline reveal">
+          <span className="section-tagline members-tagline reveal ">
             OUR PEOPLE
           </span>
           <h2

@@ -1,5 +1,33 @@
 export const placementList = [
   {
+    id: "c6d32147-b258-4bb4-ad9b-c7986c246801",
+    name: "Perusomula Gowtham Siddartha",
+    linkedin:
+      "https://www.linkedin.com/in/perusomula-gowtham-siddartha-57aa26264/",
+    engineeringDegree: "B.Tech IT (2021-2025)",
+    currentRole: "Data Associate",
+    company: "Amazon",
+    image: "/profile-pictures/Gowtama.jpg",
+  },
+  {
+    id: "3ab9cfb0-8a2e-4782-bf4c-1cad343d2408",
+    name: "Monsur A Saikia",
+    linkedin: "https://www.linkedin.com/in/monsursaikia/",
+    engineeringDegree: "B.Tech IT (2020-2024)",
+    currentRole: "Product Manager",
+    company: "YouTube",
+    image: "/profile-pictures/Monsurpng.png",
+  },
+  {
+    id: "27789334-4e83-4bf4-b7cc-0602aee60ded",
+    name: "Aradhya Jha",
+    linkedin: "https://www.linkedin.com/in/aradhyajha07/",
+    engineeringDegree: "B.Tech ECE (2021-2025)",
+    currentRole: "Member of Technical Team",
+    company: "GeeksforGeeks",
+    image: "/profile-pictures/aradhya-jha.jpg",
+  },
+  {
     id: "adc8a3af-42be-47dc-92b5-a4b77f8a95b0",
     name: "Kirti Jha",
     linkedin: "https://www.linkedin.com/in/kirtijha/",
@@ -7,6 +35,15 @@ export const placementList = [
     currentRole: "Software Developer",
     company: "Standard Chartered Bank",
     image: "/profile-pictures/Kriti_Jhajpg.jpg",
+  },
+  {
+    id: "2baebd24-ee89-4b21-878c-e2b0b3717622",
+    name: "Aryan Raj",
+    linkedin: "https://www.linkedin.com/in/aryan-raj-53082a251/",
+    engineeringDegree: "B.Tech IT (2021-2025)",
+    currentRole: "Software Engineer",
+    company: "DRDO",
+    image: "/profile-pictures/Aryan-raj.png",
   },
   {
     id: "37e90030-b08e-43ac-be1e-e04eabcc4bc7",
@@ -35,15 +72,7 @@ export const placementList = [
     company: "Pursuit Software",
     image: "/profile-pictures/Neha-nathjpg.jpg",
   },
-  {
-    id: "3ab9cfb0-8a2e-4782-bf4c-1cad343d2408",
-    name: "Monsur A Saikia",
-    linkedin: "https://www.linkedin.com/in/monsursaikia/",
-    engineeringDegree: "B.Tech IT (2020-2024)",
-    currentRole: "Product Manager",
-    company: "YouTube",
-    image: "/profile-pictures/Monsurpng.png",
-  },
+
   {
     id: "da19823f-d3e4-4f36-88af-c310ff550baa",
     name: "Rijumani Deka",
@@ -69,26 +98,9 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2021-2025)",
     currentRole: "Software Engineer",
     company: "Pursuit Software",
-    image: "/profile-pictures/Harsh-Pandeypng.png",
+    image: "/profile-pictures/harsh.png",
   },
-  {
-    id: "2baebd24-ee89-4b21-878c-e2b0b3717622",
-    name: "Aryan Raj",
-    linkedin: "https://www.linkedin.com/in/aryan-raj-53082a251/",
-    engineeringDegree: "B.Tech IT (2021-2025)",
-    currentRole: "Software Engineer",
-    company: "DRDO",
-    image: "/profile-pictures/Aryan-raj.png",
-  },
-  {
-    id: "27789334-4e83-4bf4-b7cc-0602aee60ded",
-    name: "Aradhya Jha",
-    linkedin: "https://www.linkedin.com/in/aradhyajha07/",
-    engineeringDegree: "B.Tech ECE (2021-2025)",
-    currentRole: "Member of Technical Team",
-    company: "GeeksforGeeks",
-    image: "/profile-pictures/aradhya-jha.jpg",
-  },
+
   {
     id: "8d188010-afb8-42f5-a3a0-e20b599294c8",
     name: "Devanshi Sanganeria",
@@ -98,16 +110,7 @@ export const placementList = [
     company: "Saatvik Solar",
     image: "/profile-pictures/Devanshi.jpg",
   },
-  {
-    id: "c6d32147-b258-4bb4-ad9b-c7986c246801",
-    name: "Perusomula Gowtham Siddartha",
-    linkedin:
-      "https://www.linkedin.com/in/perusomula-gowtham-siddartha-57aa26264/",
-    engineeringDegree: "B.Tech IT (2021-2025)",
-    currentRole: "Data Associate",
-    company: "Amazon",
-    image: "/profile-pictures/Gowtama.jpg",
-  },
+
   {
     id: "826f5164-ab85-462e-898a-0b4d876efc29",
     name: "Mrinmoy Debnath",

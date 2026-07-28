@@ -7,10 +7,7 @@
  */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  placementList,
-  higherStudiesIndiaList,
-} from "../data/alumniData";
+import { placementList, higherStudiesIndiaList } from "../data/alumniData";
 import {
   Briefcase,
   GraduationCap,
@@ -65,6 +62,12 @@ const Alumni = () => {
       icon: <Globe className="h-6 w-6 text-white" />,
     },
   };
+  const tabToCategoryMap = {
+    tech: "leaders",
+    studies: "higher-studies-india",
+    entrepreneurs: "entrepreneurs",
+    global: "abroad",
+  };
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-brand-dark text-zinc-800 font-sans selection:bg-brand-primary selection:text-black">
@@ -80,14 +83,14 @@ const Alumni = () => {
           {/* Left Text */}
           <div className="lg:col-span-6  text-left">
             <h1 className="font-heading text-6xl font-extrabold tracking-tight text-brand-primary sm:text-4xl lg:text-6xl leading-none">
-              Pathways connect
+              Pathways to connect
             </h1>
             <p className="font-sans text-base sm:text-lg text-zinc-650 leading-relaxed max-w-xl">
               The CodeMate Alumni Network is a community of graduates who
               continue to inspire, mentor, and support the next generation of
               innovators. From sharing industry insights to fostering meaningful
               connections, our alumni remain an integral part of CodeMate's
-              journey—strengthening a culture of learning, collaboration, and
+              journey, strengthening a culture of learning, collaboration, and
               lifelong growth.
             </p>
           </div>
@@ -209,7 +212,11 @@ const Alumni = () => {
 
                 <div className="mt-8 relative z-10">
                   <button
-                    onClick={() => navigate("/alumniViewAll")}
+                    onClick={() =>
+                      navigate("/alumniViewAll", {
+                        state: { scrollTo: tabToCategoryMap[activeTab] },
+                      })
+                    }
                     className="bg-black text-white hover:bg-zinc-900 transition-colors duration-200 text-xs font-bold px-6 py-2.5 rounded-full shadow-md cursor-pointer"
                   >
                     View all
@@ -268,7 +275,7 @@ const Alumni = () => {
                     src={alumnus.image}
                     alt={`${alumnus.name} portrait`}
                     loading="lazy"
-                    className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
+                    className="w-full  object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
                   />
                 </div>
                 <div>

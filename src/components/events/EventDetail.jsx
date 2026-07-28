@@ -188,25 +188,6 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
                     </div>
                   ))}
                 </div>
-
-                <button
-                  className="detail-cta-btn mt16"
-                  style={{
-                    background: event.color,
-                    boxShadow: `0 8px 28px ${event.color}45`,
-                  }}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.03)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
-                  onClick={() =>
-                    alert(`Registered interest for ${event.name}! 🎉`)
-                  }
-                >
-                  Register Interest →
-                </button>
               </div>
             </div>
 

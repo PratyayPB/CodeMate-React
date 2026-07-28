@@ -5,6 +5,8 @@ import BrandLogo from "../assets/BrandLogo.png";
 const SocialIcon = ({ href, label, children }) => (
   <a
     href={href}
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label={label}
     className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#f37f30] hover:text-white hover:border-[#f37f30] transition-all duration-200 shadow-sm"
   >
@@ -61,8 +63,8 @@ export default function Footer() {
       </div>
 
       {/* Main Grid */}
-      <div className="px-6 py-14 max-w-[80vw] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
+      <div className=" py-14 max-w-[80vw] mx-auto">
+        <div className="flex justify-center items-center gap-20 md:gap-32 lg:gap-40 flex-wrap">
           {/* Brand Column */}
           <div className="col-span-1">
             <div className="mb-6 flex items-start">
@@ -76,26 +78,10 @@ export default function Footer() {
                 }}
               />
             </div>
-            <p className="text-base text-slate-600 leading-relaxed mb-6 font-medium">
-              Building beautiful and functional web experiences with modern
-              technologies. We help students and businesses create their digital
-              presence.
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              {/* Facebook */}
-              <SocialIcon href="#" label="Facebook">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </SocialIcon>
 
+            <div className="flex gap-2 flex-wrap">
               {/* Instagram */}
-              <SocialIcon href="#" label="Instagram">
+              <SocialIcon href="https://www.instagram.com/codemate.nehu/" label="Instagram">
                 <svg
                   width="18"
                   height="18"
@@ -112,20 +98,8 @@ export default function Footer() {
                 </svg>
               </SocialIcon>
 
-              {/* Twitter */}
-              <SocialIcon href="#" label="Twitter / X">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </SocialIcon>
-
               {/* GitHub */}
-              <SocialIcon href="#" label="GitHub">
+              <SocialIcon href="https://github.com/CodeMate-Nehu/" label="GitHub">
                 <svg
                   width="18"
                   height="18"
@@ -137,7 +111,7 @@ export default function Footer() {
               </SocialIcon>
 
               {/* LinkedIn */}
-              <SocialIcon href="#" label="LinkedIn">
+              <SocialIcon href="https://www.linkedin.com/company/codematenehu" label="LinkedIn">
                 <svg
                   width="18"
                   height="18"
@@ -149,69 +123,6 @@ export default function Footer() {
                 </svg>
               </SocialIcon>
             </div>
-          </div>
-
-          {/* About Us */}
-          <div>
-            <h4 className="text-lg font-bold text-[#1A1A1A] mb-6">About Us</h4>
-            <ul className="space-y-3">
-              {[
-                "Company History",
-                "Meet the Team",
-                "Employee Handbook",
-                "Careers",
-              ].map((item) => (
-                <li key={item}>
-                  <FooterLink href="#">{item}</FooterLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Our Services */}
-          <div>
-            <h4 className="text-lg font-bold text-[#1A1A1A] mb-6">
-              Our Services
-            </h4>
-            <ul className="space-y-3">
-              {[
-                "Web Development",
-                "Web Design",
-                "Placement Prep",
-                "Higher Studies",
-              ].map((item) => (
-                <li key={item}>
-                  <FooterLink href="#">{item}</FooterLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Helpful Links */}
-          <div>
-            <h4 className="text-lg font-bold text-[#1A1A1A] mb-6">
-              Helpful Links
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <FooterLink href="#">FAQs</FooterLink>
-              </li>
-              <li>
-                <FooterLink href="#">Support</FooterLink>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 text-base text-slate-600 hover:text-[#f37f30] font-medium transition-colors duration-200"
-                >
-                  Live Chat
-                  <span className="relative inline-flex h-2 w-2">
-                    <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                  </span>
-                </a>
-              </li>
-            </ul>
           </div>
 
           {/* Contact Us */}
@@ -229,16 +140,11 @@ export default function Footer() {
                   hello@codemate.com
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={20} className="text-[#f37f30] flex-shrink-0" />
-                <span className="text-base text-slate-600 font-medium">
-                  +91 8637373116
-                </span>
-              </li>
+
               <li className="flex items-center gap-3">
                 <MapPin size={20} className="text-[#f37f30] flex-shrink-0" />
                 <address className="text-base text-slate-600 font-medium not-italic">
-                  Guwahati, Assam, India
+                  Shillong, Meghalaya, India
                 </address>
               </li>
             </ul>

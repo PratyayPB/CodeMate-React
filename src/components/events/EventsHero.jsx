@@ -51,14 +51,6 @@ const EventsHero = ({ onExploreClick }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const scrollToFooter = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section id="hero">
       <div className="grid-bg">
@@ -101,9 +93,15 @@ const EventsHero = ({ onExploreClick }) => {
           <button className="btn-primary" onClick={onExploreClick}>
             Explore Events
           </button>
-          <button className="btn-secondary" onClick={scrollToFooter}>
+          <a
+            href="https://linktr.ee/codemate_club_nehu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary"
+            style={{ textDecoration: 'none' }}
+          >
             Join CodeMate
-          </button>
+          </a>
         </div>
       </div>
     </section>

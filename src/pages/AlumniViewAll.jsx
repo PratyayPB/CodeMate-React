@@ -4,7 +4,8 @@
  * Features: Back navigation button, categorized list grids matching the design,
  * custom card templates (light vs. highlighted orange, text detail layouts), and icon indicators.
  */
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   GraduationCap,
   Briefcase,
@@ -24,6 +25,24 @@ import {
 
 const AlumniViewAll = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const targetId = location.state?.scrollTo;
+    if (targetId) {
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          const yOffset = -100;
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   // Categorized Alumni Groups matching the reference image categories
   const categories = [
     {
@@ -96,7 +115,7 @@ const AlumniViewAll = () => {
       {/* ========================================================================= */}
       <section className="relative z-10 mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8 space-y-16">
         {categories.map((cat) => (
-          <div key={cat.id} className="space-y-6">
+          <div key={cat.id} id={cat.id} className="space-y-6">
             {/* Category Header */}
             <div className="relative py-8 px-6 overflow-hidden rounded-2xl border border-zinc-200/40 bg-zinc-50/20">
               <div className="relative z-10">

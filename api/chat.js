@@ -2,7 +2,6 @@ import { pipeline, env } from "@xenova/transformers";
 import { Pinecone } from "@pinecone-database/pinecone";
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Configure transformers to use /tmp for caching models on Vercel Serverless
 env.cacheDir = "/tmp";
@@ -123,38 +122,80 @@ CRITICAL INSTRUCTIONS:
 
 SUPPLIED CONTEXT:
 ${context || "No context found."}`;
-    // 6. Call Google Gemini API
-    const geminiKey = process.env.GEMINI_API_KEY;
-    if (!geminiKey) {
-      throw new Error("GEMINI_API_KEY is not configured.");
-    }
 
-    const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      systemInstruction: systemPrompt,
-    });
-
-    // Include up to 6 recent conversation history items for Gemini
-    const chatHistory = Array.isArray(history)
+    // Include up to 6 recent conversation history items
+    const formattedHistory = Array.isArray(history)
       ? history.slice(-6).map((h) => ({
-          role: h.role === "assistant" || h.role === "model" ? "model" : "user",
-          parts: [{ text: String(h.content || "") }],
+          role: h.role === "user" ? "user" : "assistant",
+          content: String(h.content || ""),
         }))
       : [];
 
-    let answer = null;
-    try {
-      const chat = model.startChat({
-        history: chatHistory,
-      });
+    const llmMessages = [
+      { role: "system", content: systemPrompt },
+      ...formattedHistory,
+      { role: "user", content: message },
+    ];
 
-      const result = await chat.sendMessage(message);
-      answer = result.response.text();
-    } catch (err) {
-      console.error("Gemini API Error:", err);
+    // 6. Call OpenRouter API with Fallback Model Support
+    const openRouterKey = process.env.OPENROUTER_API_KEY;
+    if (!openRouterKey) {
+      throw new Error("OPENROUTER_API_KEY is not configured.");
+    }
+
+    const CANDIDATE_MODELS = [
+      "google/gemma-4-31b-it:free",
+      "meta-llama/llama-3.3-70b-instruct:free",
+      "deepseek/deepseek-r1:free",
+      "qwen/qwen-2.5-72b-instruct:free",
+      "mistralai/mistral-7b-instruct:free",
+    ];
+
+    let answer = null;
+    let lastError = null;
+
+    for (const model of CANDIDATE_MODELS) {
+      try {
+        const openRouterResponse = await fetch(
+          "https://openrouter.ai/api/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${openRouterKey}`,
+              "Content-Type": "application/json",
+              "HTTP-Referer": "https://codematenehu.vercel.app",
+              "X-Title": "CodeMate AI Assistant",
+            },
+            body: JSON.stringify({
+              model: model,
+              messages: llmMessages,
+              temperature: 0.3,
+            }),
+          },
+        );
+
+        if (openRouterResponse.ok) {
+          const data = await openRouterResponse.json();
+          answer = data.choices?.[0]?.message?.content;
+          if (answer) break; // Successfully retrieved an answer!
+        } else {
+          const errText = await openRouterResponse.text();
+          console.warn(
+            `OpenRouter model ${model} failed (${openRouterResponse.status}): ${errText}`,
+          );
+          lastError = errText;
+        }
+      } catch (err) {
+        console.warn(`Error trying OpenRouter model ${model}:`, err);
+        lastError = err.message;
+      }
+    }
+
+    if (!answer) {
+      console.error("All candidate LLM models failed. Last error:", lastError);
       return res.status(502).json({
-        error: "Gemini AI is currently unavailable. Please try again later.",
+        error:
+          "All free LLM providers are currently busy. Please try again in a few seconds.",
       });
     }
 
