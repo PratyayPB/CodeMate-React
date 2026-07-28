@@ -7,6 +7,7 @@ import Resources from "./pages/Resources";
 import Alumni from "./pages/Alumni";
 import AlumniViewAll from "./pages/AlumniViewAll";
 import EventsPage from "./pages/EventsPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 import ChatWindow from "./components/Chat/ChatWindow";
@@ -76,6 +77,12 @@ function App() {
               onClick: () => handleNavClick("/events"),
             },
             {
+              label: "Contact",
+              ariaLabel: "Contact CodeMate",
+              link: "#",
+              onClick: () => handleNavClick("/contact"),
+            },
+            {
               label: "Community",
               ariaLabel: "Join community",
               link: "https://linktr.ee/codemate_club_nehu",
@@ -105,6 +112,7 @@ function App() {
           <Route path="/AlumniViewAll" element={<AlumniViewAll />} />
           <Route path="/Resources" element={<Resources />} />
           <Route path="/events" element={<EventsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
