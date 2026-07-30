@@ -50,9 +50,9 @@ export default function Footer() {
     <footer className="bg-white text-zinc-900 font-sans border-t border-zinc-200/60 w-full pt-16 pb-8">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Content Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 pb-16">
           {/* Left Column (Brand, Address, Contact) */}
-          <div className="md:col-span-6 lg:col-span-6 space-y-8">
+          <div className="md:col-span-5 lg:col-span-4 space-y-8">
             {/* Logo */}
             <div>
               <Link to="/">
@@ -88,8 +88,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Columns (Nav Links) */}
-          <div className="md:col-span-6 lg:col-span-6 grid grid-cols-2 gap-8 md:gap-16 items-start pt-8">
+          {/* Nav Links Column */}
+          <div className="md:col-span-3 lg:col-span-3 grid grid-cols-2 gap-4 items-start pt-2 md:pt-0">
             {/* Column 1 */}
             <div className="space-y-3.5 flex flex-col">
               <Link
@@ -142,6 +142,22 @@ export default function Footer() {
                 Join us
               </a>
             </div>
+          </div>
+
+          {/* Map Column */}
+          <div className="md:col-span-4 lg:col-span-5 flex flex-col justify-start">
+            <a
+              href="https://maps.google.com/?q=School+of+Technology+NEHU+Shillong"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block relative overflow-hidden rounded-2xl border border-zinc-200/80 shadow-sm hover:shadow-md transition-all duration-300"
+            >
+              <img
+                src="/images/footer-map.png"
+                alt="School of Technology, NEHU Shillong Map"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </a>
           </div>
         </div>
 
