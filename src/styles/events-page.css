@@ -730,4 +730,21 @@
     padding: 13px 26px;
     font-size: 14px;
   }
+  .events-page .detail-banner {
+    height: 40vh;
+    min-height: 240px;
+    margin-bottom: 24px;
+  }
+  .events-page .detail-banner-text {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+  }
+  .events-page .detail-nav-arrows {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .events-page .arrow-btn {
+    max-width: 100%;
+  }
 }

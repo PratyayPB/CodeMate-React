@@ -83,7 +83,7 @@ const Hero = () => {
         alt="NEHU School of Technology"
       />
 
-      <div className="hero-text-container">
+      <div className="hero-text-container flex flex-col justify-center items-center sm:block">
         <h1 className="massive-title reveal">
           <span className="word-small block">BUILD.</span>
           <span className="word-large accent block">CONNECT.</span>

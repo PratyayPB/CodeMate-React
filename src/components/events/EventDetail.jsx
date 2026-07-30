@@ -58,7 +58,7 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
     <section
       id="detail-section"
       ref={detailRef}
-      className="max-w-[80vw] mt-30 mb-20 rounded-2xl"
+      className="w-full max-w-[92vw] sm:max-w-[80vw] mx-auto my-12 sm:my-20 md:my-30 rounded-2xl py-2 sm:py-8 "
     >
       <div className="grid-bg">
         <svg
@@ -67,7 +67,10 @@ const EventDetail = ({ event, allEvents, onSelectEvent, detailRef }) => {
           xmlns="http://www.w3.org/2000/svg"
         ></svg>
       </div>
-      <div id="detail-inner " className="px-20 py-15">
+      <div
+        id="detail-inner"
+        className="px-4 sm:px-10 md:px-20 py-6 sm:py-10 md:py-15"
+      >
         <div
           className="sec-head fade-up"
           style={{ opacity: 1, transform: "none" }}

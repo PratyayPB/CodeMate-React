@@ -57,7 +57,7 @@ const memberGroups = {
       {
         name: "Dr. Arnab Kumar Maji",
         role: "Coordinator",
-        desc: "Academic advisor providing deep insights into research and excellence.",
+        desc: "Dr. A. K. Maji is an Associate Professor in the Department of Information Technology at NEHU, specializing in Computer Vision, Artificial Intelligence, Natural Language Processing, and Quantum Computing, with extensive research contributions, over 100 publications, and international recognition as a top 5% scientist.",
         linkedin: "#",
         email: "arnab@codemate.com",
         github: "#",
@@ -67,7 +67,7 @@ const memberGroups = {
       {
         name: "Prof. Sirsendu Sekhar Ray",
         role: "Coordinator",
-        desc: "Mentorship lead fostering student growth through expert guidance.",
+        desc: "Prof. Sirsendu Sekhar Ray is a Professor in the Department of Biomedical Engineering at NEHU, whose research focuses on nanotechnology, biomaterials, stem cell engineering, and healthcare engineering, with significant contributions in biomedical innovation, patents, and interdisciplinary research.",
         linkedin: "#",
         email: "sirsendu@codemate.com",
         github: "#",
@@ -77,7 +77,7 @@ const memberGroups = {
       {
         name: "Mr. Asif Ahmed",
         role: "Coordinator",
-        desc: "Industry liaison bridging the gap between academia and career.",
+        desc: "Mr. Asif Ahmed is an Assistant Professor in the Department of Electronics and Communication Engineering at NEHU, specializing in Artificial Intelligence, Machine Learning, VLSI, and Mixed-Signal Design, with over 20 years of experience in teaching and research.",
         linkedin: "#",
         email: "asif@codemate.com",
         github: "#",
@@ -99,7 +99,7 @@ const memberGroups = {
         email: "bandeep@codemate.com",
         github: "#",
         imageSrc: "images/team/biku_p.jpeg",
-        thumbnailSrc: "images/team/biku_t.png",
+        thumbnailSrc: "images/team/biku_p.jpeg",
       },
       {
         name: "Nikunj Maheshwari",
@@ -109,8 +109,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/nikunjm111/",
         email: "nikunjnehu@gmail.com",
         github: "#",
-        imageSrc: "images/team/nikunjmaheshwari_p.jpeg",
-        thumbnailSrc: "images/team/nikunjmaheshwari_t.png",
+        imageSrc: "images/team/nikunj.jpeg",
+        thumbnailSrc: "images/team/nikunj.jpeg",
       },
       {
         name: "Soumojit Bhuin",
@@ -180,7 +180,7 @@ const memberGroups = {
       },
       {
         name: "Disha Saha",
-        role: "Documentation Coordinator",
+        role: "Event Reporting & Operations Coordinator",
         subgroup: "Event Management Team",
         desc: "Captures and organizes event moments through visual storytelling.",
         linkedin: "https://www.linkedin.com/in/disha-saha-21549a41b/",
@@ -457,7 +457,7 @@ const Members = () => {
                     <img
                       src={`/${activeMember.imageSrc}`}
                       alt={activeMember.name}
-                      className="ts-main-image ts-main-image-anim"
+                      className="ts-main-image ts-main-image-anim "
                     />
                   </div>
                   <div className="ts-right-col">

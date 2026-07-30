@@ -15,7 +15,7 @@ export const EVENTS = [
       "Suyash Raj — 2nd Runner-Up",
     ],
     tech: ["CodeChef"],
-    stats: { Participants: 0, Teams: 0, Prizes: 3 },
+    stats: { Registrations: 0, Teams: 0, Prizes: 3 },
     gallery: [
       "/assets/codefest1/2.jpeg",
       "/assets/codefest1/3.jpeg",
@@ -38,7 +38,7 @@ export const EVENTS = [
       "Kundan Kumar Jha — 2nd Runner-Up",
     ],
     tech: ["CodeChef"],
-    stats: { Participants: 0, Teams: 0, Prizes: 3 },
+    stats: { Registrations: 0, Teams: 0, Prizes: 3 },
     gallery: [
       "/assets/codefest2/6.jpeg",
       "/assets/codefest2/7.jpeg",
@@ -57,7 +57,7 @@ export const EVENTS = [
     speakersLabel: "Organised By",
     speakers: ["Team CodeMate"],
     tech: [],
-    stats: { Participants: 0, Teams: 0, Prizes: 0 },
+    stats: { Registrations: 0, Teams: 0, Prizes: 0 },
     gallery: [
       "/assets/orientation1/10.png",
       "/assets/codefest3/11.jpeg",
@@ -80,7 +80,7 @@ export const EVENTS = [
       "Hostel Renggira — Runner-Up",
     ],
     tech: [],
-    stats: { Hostels: 5, Prizes: 2, Participants: 0, Teams: 0 },
+    stats: { Hostels: 5, Prizes: 2, Registrations: 0, Teams: 0 },
     gallery: [
       "/assets/hostelhavoc/14.jpg",
       "/assets/hostelhavoc/15.jpg",
@@ -103,7 +103,7 @@ export const EVENTS = [
       "Tanvir Mahtab — 2nd Runner-Up",
     ],
     tech: ["CodeChef", "ChaiType"],
-    stats: { Participants: 0, Teams: 0, Prizes: 3 },
+    stats: { Registrations: 0, Teams: 0, Prizes: 3 },
     gallery: [
       "/assets/codefest3/18.jpeg",
       "/assets/codefest3/19.jpeg",
@@ -122,7 +122,7 @@ export const EVENTS = [
     speakersLabel: "Speaker",
     speakers: ["Gowtham Siddartha"],
     tech: [],
-    stats: { Participants: 36, Teams: 0, Prizes: 0 },
+    stats: { Registrations: 60, Teams: 0, Prizes: 0 },
     gallery: [
       "/assets/resume/22.jpg",
       "/assets/resume/23.jpg",
@@ -141,7 +141,7 @@ export const EVENTS = [
     speakersLabel: "Speaker",
     speakers: ["Abhishek Kumar Rai"],
     tech: [],
-    stats: { Participants: 27, Teams: 0, Prizes: 0 },
+    stats: { Registrations: 58, Teams: 0, Prizes: 0 },
     gallery: [
       "/assets/interview/26.jpg",
       "/assets/interview/27.jpg",
@@ -161,7 +161,7 @@ export const EVENTS = [
     speakersLabel: "Speaker",
     speakers: ["Dr. Kuldeep Baishya"],
     tech: [],
-    stats: { Participants: 13, Teams: 0, Prizes: 0 },
+    stats: { Registrations: 35, Teams: 0, Prizes: 0 },
     gallery: [
       "/assets/beyond/30.jpg",
       "/assets/beyond/31.jpg",

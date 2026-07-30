@@ -1820,24 +1820,31 @@
 /* Center Column */
 .ts-center-col {
   position: relative;
-  min-height: 400px;
   order: 1;
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
   .ts-center-col {
     order: 2;
-    min-height: 500px;
   }
 }
 
 .ts-main-image {
   width: 100%;
-  height: 100%;
+  max-width: 320px;
+  height: 380px;
   object-fit: cover;
+  object-position: top center;
   border-radius: 12px;
+}
+
+@media (min-width: 768px) {
+  .ts-main-image {
+    height: 440px;
+  }
 }
 
 /* Right Column */
