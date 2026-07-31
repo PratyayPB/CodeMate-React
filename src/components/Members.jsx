@@ -138,7 +138,7 @@ const memberGroups = {
         name: "Pratyay Pratim Borah",
         role: "Full-Stack Developer",
         subgroup: "Tech Team",
-        desc: "Develops scalable web interfaces and optimizes UX.",
+        desc: "Develops end-to-end web solutions from frontend to deployment.",
         linkedin: "https://www.linkedin.com/in/pratyaypratimborah/",
         email: "pratyay@codemate.com",
         github: "#",
