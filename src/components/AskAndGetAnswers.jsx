@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Bot, Mic, Minus } from "lucide-react";
+import { Bot, Minus } from "lucide-react";
 import { useChat } from "../hooks/useChat";
+import { renderMarkdown } from "../utils/markdown";
 
 const AskAndGetAnswers = () => {
   const [inputVal, setInputVal] = useState("");
@@ -90,9 +91,15 @@ const AskAndGetAnswers = () => {
                     <div
                       className={`rounded-2xl p-3.5 sm:p-4 max-w-[90%] sm:max-w-[85%] shadow-sm ${isAI ? "bg-[#3a3a3a] text-white" : "bg-[#f98833] text-black"}`}
                     >
-                      <p className="text-xs sm:text-base font-medium leading-relaxed whitespace-pre-wrap">
-                        {msg.content}
-                      </p>
+                      {isAI ? (
+                        <div className="text-xs sm:text-base font-medium leading-relaxed space-y-1">
+                          {renderMarkdown(msg.content)}
+                        </div>
+                      ) : (
+                        <p className="text-xs sm:text-base font-medium leading-relaxed whitespace-pre-wrap">
+                          {msg.content}
+                        </p>
+                      )}
                     </div>
                   </div>
                 );
@@ -129,13 +136,6 @@ const AskAndGetAnswers = () => {
             onSubmit={handleSubmit}
             className="px-3 sm:px-8 pb-4 sm:pb-8 flex items-center gap-2 sm:gap-4 border-t border-[#3a3a3a] pt-3 sm:pt-4 mt-auto bg-[#2a2a2a]"
           >
-            <button
-              type="button"
-              className="bg-[#3a3a3a] text-[#f98833] hover:text-[#ff9c2a] hover:bg-[#444444] transition-colors p-2.5 sm:p-3.5 rounded-xl flex-shrink-0 shadow-sm min-h-[40px] min-w-[40px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center"
-              aria-label="Use Microphone"
-            >
-              <Mic className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
             <div className="flex-1 min-w-0 relative">
               <input
                 type="text"

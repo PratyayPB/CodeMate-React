@@ -1,43 +1,5 @@
 import React, { useState } from 'react';
-
-// Lightweight inline markdown renderer helper
-const renderMarkdown = (text) => {
-  if (!text) return null;
-
-  // Split lines
-  const lines = text.split('\n');
-  return lines.map((line, idx) => {
-    // Check for bullet list item
-    const isBullet = line.trim().startsWith('- ') || line.trim().startsWith('* ');
-    const content = isBullet ? line.trim().substring(2) : line;
-
-    // Bold formatting (**text**)
-    const parts = content.split(/(\*\*.*?\*\*)/g).map((part, pIdx) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={pIdx}>{part.slice(2, -2)}</strong>;
-      }
-      return part;
-    });
-
-    if (isBullet) {
-      return (
-        <li key={idx} className="msg-list-item">
-          {parts}
-        </li>
-      );
-    }
-
-    if (line.trim() === '') {
-      return <div key={idx} className="msg-paragraph-gap" />;
-    }
-
-    return (
-      <p key={idx} className="msg-paragraph">
-        {parts}
-      </p>
-    );
-  });
-};
+import { renderMarkdown } from '../../utils/markdown';
 
 const Message = ({ message, isLast, onRegenerate }) => {
   const [copied, setCopied] = useState(false);
