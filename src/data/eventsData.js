@@ -84,7 +84,7 @@ export const EVENTS = [
     gallery: [
       "/assets/hostelhavoc/14.jpg",
       "/assets/hostelhavoc/15.jpg",
-      "/assets/hostelhavoc/26.jpg",
+      "/assets/hostelhavoc/16.jpg",
     ],
   },
   {
