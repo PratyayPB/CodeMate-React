@@ -136,7 +136,7 @@ const memberGroups = {
       },
       {
         name: "Pratyay Pratim Borah",
-        role: "Frontend Developer",
+        role: "Full-Stack Developer",
         subgroup: "Tech Team",
         desc: "Develops scalable web interfaces and optimizes UX.",
         linkedin: "https://www.linkedin.com/in/pratyaypratimborah/",
