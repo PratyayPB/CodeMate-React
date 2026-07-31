@@ -23,7 +23,9 @@ const Impact = () => {
     <section id="impact" className="impact section">
       <div className="container flex flex-col items-center">
         <div className="section-header text-center">
-          <span className="section-tagline">we don't just promise</span>
+          <span className="section-tagline self-center !ml-0">
+            we don't just promise
+          </span>
           <h2 className="section-title">
             let our <span className="accent">impact</span> speak for us
           </h2>

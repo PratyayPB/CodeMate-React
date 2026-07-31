@@ -34,7 +34,8 @@ const AlumniViewAll = () => {
         const element = document.getElementById(targetId);
         if (element) {
           const yOffset = -100;
-          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          const y =
+            element.getBoundingClientRect().top + window.scrollY + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
         }
       }, 100);
@@ -88,19 +89,19 @@ const AlumniViewAll = () => {
       {/* Background Radial Glow */}
       <div className="orange-glow-top" aria-hidden="true" />
 
+      {/* Back Link (Fixed outside stacking contexts to prevent overlap) */}
+      <button
+        onClick={() => navigate("/Alumni")}
+        className="fixed left-4 md:left-8 top-16 md:top-20 z-[100] hidden lg:inline-flex items-center justify-center rounded-full bg-zinc-100 p-3 hover:bg-zinc-200 transition-colors cursor-pointer min-h-[44px] min-w-[44px] shadow-md"
+        aria-label="Back to Alumni page"
+      >
+        <ArrowLeft className="h-4 w-4 text-brand-primary" />
+      </button>
+
       {/* ========================================================================= */}
       {/* HEADER SECTION */}
       {/* ========================================================================= */}
       <section className="relative z-10 mx-auto max-w-screen-xl px-4 pt-28 sm:pt-32 pb-6 sm:px-6 md:pt-36 lg:px-8">
-        {/* Back Link */}
-        <button
-          onClick={() => navigate("/Alumni")}
-          className="mb-8 inline-flex items-center justify-center rounded-full bg-zinc-100 p-3 hover:bg-zinc-200 transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
-          aria-label="Back to Alumni page"
-        >
-          <ArrowLeft className="h-4 w-4 text-brand-primary" />
-        </button>
-
         <div className="space-y-2">
           <span className="inline-block font-sans text-xs font-semibold tracking-[0.25em] text-brand-primary uppercase">
             SCET Directory
@@ -139,13 +140,13 @@ const AlumniViewAll = () => {
               {cat.alumni.map((alumnus, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] shadow-md border bg-zinc-50 border-zinc-200/80 text-black"
+                  className="group rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] shadow-md border bg-zinc-50 border-zinc-200/80 text-black"
                 >
                   <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 mb-4 border-zinc-300">
                     <img
                       src={alumnus.image}
                       alt={alumnus.name}
-                      className="w-full h-full object-cover filter grayscale"
+                      className="w-full h-full object-cover filter grayscale transition-all duration-300 group-hover:grayscale-0"
                     />
                   </div>
                   <h3 className="font-heading text-lg font-bold leading-tight">
