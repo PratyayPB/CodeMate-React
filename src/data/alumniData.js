@@ -5,7 +5,7 @@ export const placementList = [
     linkedin:
       "https://www.linkedin.com/in/perusomula-gowtham-siddartha-57aa26264/",
     engineeringDegree: "B.Tech IT (2021-2025)",
-    currentRole: "Data Associate",
+    currentRole: "ML Data Associate",
     company: "Amazon",
     image: "/profile-pictures/Gowtama.jpg",
   },
@@ -91,15 +91,6 @@ export const placementList = [
     company: "ZS",
     image: "/profile-pictures/Abhishek-raijpg.jpg",
   },
-  {
-    id: "0e0a1493-144f-43b3-bf3d-8dfae33708c5",
-    name: "Harsh Pandey",
-    linkedin: "https://www.linkedin.com/in/22harshpandey/",
-    engineeringDegree: "B.Tech IT (2021-2025)",
-    currentRole: "Software Engineer",
-    company: "Pursuit Software",
-    image: "/profile-pictures/harsh.png",
-  },
 
   {
     id: "8d188010-afb8-42f5-a3a0-e20b599294c8",
@@ -141,6 +132,15 @@ export const placementList = [
 ];
 
 export const higherStudiesIndiaList = [
+  {
+    id: "0e0a1493-144f-43b3-bf3d-8dfae33708c5",
+    name: "Harsh Pandey",
+    linkedin: "https://www.linkedin.com/in/22harshpandey/",
+    engineeringDegree: "B.Tech IT (2021-2025)",
+    program: "PhD, Information Systems",
+    institution: "IIT Roorkee",
+    image: "/profile-pictures/harsh.png",
+  },
   {
     id: "c5cc7e16-ab99-4d3e-9ca6-2dcb23e82fd7",
     name: "Pravin Kumar Mahato",
