@@ -40,7 +40,7 @@ export const placementList = [
     id: "2baebd24-ee89-4b21-878c-e2b0b3717622",
     name: "Aryan Raj",
     linkedin: "https://www.linkedin.com/in/aryan-raj-53082a251/",
-    engineeringDegree: "B.Tech IT (2021-2025)",
+    engineeringDegree: "B.Tech BME (2021-2025)",
     currentRole: "Software Engineer",
     company: "DRDO",
     image: "/profile-pictures/Aryan-raj.png",

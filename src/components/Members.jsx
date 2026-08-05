@@ -21,7 +21,7 @@ const memberGroups = {
       {
         name: "Harsh Pandey",
         role: "Founder",
-        desc: "Research scholar at IIT Roorkee in Information Systems | Ex-Software Engineer at Pursuit Software | SSB recommended AIR15.",
+        desc: "Research scholar at IIT Roorkee in Information Systems | Ex-Software Engineer at Pursuit Software | SSB recommended AIR15 | Gate Qualified × 2.",
         linkedin: "https://www.linkedin.com/in/22harshpandey/",
         email: "harsh@codemate.com",
         github: "#",

@@ -4,7 +4,7 @@
 
 .chat-widget-root {
   position: fixed;
-  bottom: 24px;
+  bottom: 90px;
   right: 24px;
   z-index: 9999;
   font-family: "Outfit", "Inter", sans-serif;
@@ -50,7 +50,7 @@
 /* Chat Panel Window */
 .chat-window-panel {
   position: fixed;
-  bottom: 92px;
+  bottom: 158px;
   right: 24px;
   width: 390px;
   max-width: calc(100vw - 32px);
