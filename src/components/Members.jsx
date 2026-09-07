@@ -15,8 +15,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/abhishek-kumar-rai-6b46a6269/",
         email: "abhishek@codemate.com",
         github: "#",
-        imageSrc: "images/founders/akb.jpg.webp",
-        thumbnailSrc: "images/founders/akbt.webp",
+        imageSrc: "/images/founders/abhishek-kumar-rai.webp",
+        thumbnailSrc: "/images/founders/abhishek-kumar-rai-thumb.webp",
       },
       {
         name: "Harsh Pandey",
@@ -25,8 +25,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/22harshpandey/",
         email: "harsh@codemate.com",
         github: "#",
-        imageSrc: "images/founders/harsh.webp",
-        thumbnailSrc: "images/founders/hpt.webp",
+        imageSrc: "/images/founders/harsh-pandey.webp",
+        thumbnailSrc: "/images/founders/harsh-pandey-thumb.webp",
       },
       {
         name: "Abhi Nitnaware",
@@ -35,8 +35,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/abhi-nitnaware/",
         email: "abhi@codemate.com",
         github: "#",
-        imageSrc: "images/founders/an.webp",
-        thumbnailSrc: "images/founders/ant.webp",
+        imageSrc: "/images/founders/abhi-nitnaware.webp",
+        thumbnailSrc: "/images/founders/abhi-nitnaware-thumb.webp",
       },
       {
         name: "Bikash Barua",
@@ -45,8 +45,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/bikash-barua-662804217/",
         email: "bikashbee31@gmail.com",
         github: "#",
-        imageSrc: "images/founders/bikash-barua.webp",
-        thumbnailSrc: "images/founders/bikash-barua.webp",
+        imageSrc: "/images/founders/bikash-barua.webp",
+        thumbnailSrc: "/images/founders/bikash-barua.webp",
       },
     ],
   },
@@ -61,8 +61,8 @@ const memberGroups = {
         linkedin: "#",
         email: "arnab@codemate.com",
         github: "#",
-        imageSrc: "images/teacher_coordinator/it.png",
-        thumbnailSrc: "images/teacher_coordinator/itt.png",
+        imageSrc: "/images/coordinators/arnab-kumar-maji.png",
+        thumbnailSrc: "/images/coordinators/arnab-kumar-maji-thumb.png",
       },
       {
         name: "Prof. Sirsendu Sekhar Ray",
@@ -71,8 +71,8 @@ const memberGroups = {
         linkedin: "#",
         email: "sirsendu@codemate.com",
         github: "#",
-        imageSrc: "images/teacher_coordinator/bme.png",
-        thumbnailSrc: "images/teacher_coordinator/bmet.png",
+        imageSrc: "/images/coordinators/sirsendu-sekhar-ray.png",
+        thumbnailSrc: "/images/coordinators/sirsendu-sekhar-ray-thumb.png",
       },
       {
         name: "Mr. Asif Ahmed",
@@ -81,8 +81,8 @@ const memberGroups = {
         linkedin: "#",
         email: "asif@codemate.com",
         github: "#",
-        imageSrc: "images/teacher_coordinator/asifHD.jpeg",
-        thumbnailSrc: "images/teacher_coordinator/asifHD.jpeg",
+        imageSrc: "/images/coordinators/asif-ahmed.jpeg",
+        thumbnailSrc: "/images/coordinators/asif-ahmed.jpeg",
       },
     ],
   },
@@ -98,8 +98,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/bandeep-bhatta/",
         email: "bandeep@codemate.com",
         github: "#",
-        imageSrc: "images/team/biku_p.jpeg",
-        thumbnailSrc: "images/team/biku_p.jpeg",
+        imageSrc: "/images/team/bandeep-bhatta-profile.jpeg",
+        thumbnailSrc: "/images/team/bandeep-bhatta-profile.jpeg",
       },
       {
         name: "Nikunj Maheshwari",
@@ -109,8 +109,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/nikunjm111/",
         email: "nikunjnehu@gmail.com",
         github: "#",
-        imageSrc: "images/team/nikunj.jpeg",
-        thumbnailSrc: "images/team/nikunj.jpeg",
+        imageSrc: "/images/team/nikunj-maheshwari.jpeg",
+        thumbnailSrc: "/images/team/nikunj-maheshwari.jpeg",
       },
       {
         name: "Soumojit Bhuin",
@@ -120,8 +120,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/soumojit-bhuin-313328345",
         email: "soumojit@codemate.com",
         github: "https://www.linkedin.com/in/soumojit-bhuin-313328345/",
-        imageSrc: "images/team/soumojit_p.png",
-        thumbnailSrc: "images/team/soumojit_t.png",
+        imageSrc: "/images/team/soumojit-bhuin-profile.png",
+        thumbnailSrc: "/images/team/soumojit-bhuin-thumb.png",
       },
       {
         name: "Anurag Saud",
@@ -131,8 +131,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/anuragsaud/",
         email: "anurag@codemate.com",
         github: "#",
-        imageSrc: "images/team/anurag_p.jpeg",
-        thumbnailSrc: "images/team/anurag_t.png",
+        imageSrc: "/images/team/anurag-saud-profile.jpeg",
+        thumbnailSrc: "/images/team/anurag-saud-thumb.png",
       },
       {
         name: "Pratyay Pratim Borah",
@@ -142,8 +142,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/pratyaypratimborah/",
         email: "pratyay@codemate.com",
         github: "#",
-        imageSrc: "images/team/pratyay_p.jpeg",
-        thumbnailSrc: "images/team/pratyay_t.jpeg",
+        imageSrc: "/images/team/pratyay-pratim-borah-profile.jpeg",
+        thumbnailSrc: "/images/team/pratyay-pratim-borah-thumb.jpeg",
       },
       {
         name: "Vaivbhav Papney",
@@ -153,8 +153,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/vaibhavpapney/",
         email: "vaivbhav@codemate.com",
         github: "#",
-        imageSrc: "images/team/vaibhav_p.png",
-        thumbnailSrc: "images/team/vaibhav_t.png",
+        imageSrc: "/images/team/vaibhav-papney-profile.png",
+        thumbnailSrc: "/images/team/vaibhav-papney-thumb.png",
       },
       {
         name: "Sazeed Taj",
@@ -164,8 +164,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/sazeedtaj/",
         email: "sazeed@codemate.com",
         github: "#",
-        imageSrc: "images/team/sazeed_p.jpeg",
-        thumbnailSrc: "images/team/sazeed_t.jpeg",
+        imageSrc: "/images/team/sazeed-taj-profile.jpeg",
+        thumbnailSrc: "/images/team/sazeed-taj-thumb.jpeg",
       },
       {
         name: "Rishita Kashyap",
@@ -175,8 +175,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/rishitakashyap/",
         email: "rishita@codemate.com",
         github: "#",
-        imageSrc: "images/team/rishita_p.jpeg",
-        thumbnailSrc: "images/team/rishita_t.jpeg",
+        imageSrc: "/images/team/rishita-kashyap-profile.jpeg",
+        thumbnailSrc: "/images/team/rishita-kashyap-thumb.jpeg",
       },
       {
         name: "Disha Saha",
@@ -186,8 +186,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/disha-saha-21549a41b/",
         email: "disha@codemate.com",
         github: "#",
-        imageSrc: "images/team/disha_p.jpeg",
-        thumbnailSrc: "images/team/disha_t.jpeg",
+        imageSrc: "/images/team/disha-saha-profile.jpeg",
+        thumbnailSrc: "/images/team/disha-saha-thumb.jpeg",
       },
       {
         name: "Chandrasmita Gayan",
@@ -197,8 +197,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/chandrasmitagayan/",
         email: "chandrasmita@codemate.com",
         github: "#",
-        imageSrc: "images/team/chandrasmita_p.jpeg",
-        thumbnailSrc: "images/team/chandrasmita_t.jpeg",
+        imageSrc: "/images/team/chandrasmita-gayan-profile.jpeg",
+        thumbnailSrc: "/images/team/chandrasmita-gayan-thumb.jpeg",
       },
       {
         name: "Deepanshu Das",
@@ -208,8 +208,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/deepanshu-das/",
         email: "deepanshu@codemate.com",
         github: "#",
-        imageSrc: "images/team/deepanshu_p.jpeg",
-        thumbnailSrc: "images/team/deepanshu_t.jpeg",
+        imageSrc: "/images/team/deepanshu-das-profile.jpeg",
+        thumbnailSrc: "/images/team/deepanshu-das-thumb.jpeg",
       },
       {
         name: "Krish Das",
@@ -219,8 +219,8 @@ const memberGroups = {
         linkedin: "https://www.linkedin.com/in/krish-das-223282280/",
         email: "krish@codemate.com",
         github: "#",
-        imageSrc: "images/team/krish_p.jpeg",
-        thumbnailSrc: "images/team/krish_t.jpeg",
+        imageSrc: "/images/team/krish-das-profile.jpeg",
+        thumbnailSrc: "/images/team/krish-das-thumb.jpeg",
       },
     ],
   },
@@ -231,6 +231,11 @@ const navItems = [
   { id: "teachers", label: "Teachers" },
   { id: "leads", label: "Builders" },
 ];
+
+const formatImgSrc = (src) => {
+  if (!src) return "";
+  return src.startsWith("/") ? src : `/${src}`;
+};
 
 const Members = () => {
   const [currentGroup, setCurrentGroup] = useState("founders");
@@ -386,7 +391,7 @@ const Members = () => {
                       <div key={i} className="member-card reveal">
                         <div className="member-card-img-wrap">
                           <img
-                            src={`/${member.imageSrc}`}
+                            src={formatImgSrc(member.imageSrc)}
                             alt={member.name}
                             className="member-card-img"
                           />
@@ -445,7 +450,7 @@ const Members = () => {
                           className="slider-thumb-btn"
                         >
                           <img
-                            src={`/${member.thumbnailSrc}`}
+                            src={formatImgSrc(member.thumbnailSrc)}
                             alt={member.name}
                             className="slider-thumb-img"
                           />
@@ -455,7 +460,7 @@ const Members = () => {
                   </div>
                   <div className="ts-center-col">
                     <img
-                      src={`/${activeMember.imageSrc}`}
+                      src={formatImgSrc(activeMember.imageSrc)}
                       alt={activeMember.name}
                       className="ts-main-image ts-main-image-anim "
                     />

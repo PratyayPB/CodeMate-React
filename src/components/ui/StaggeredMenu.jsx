@@ -10,7 +10,7 @@ export const StaggeredMenu = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/src/assets/logos/reactbits-gh-white.svg',
+  logoUrl = '/images/logos/codemate-brand-logo.png',
   onLogoClick,
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
@@ -377,7 +377,7 @@ export const StaggeredMenu = ({
           style={{ cursor: onLogoClick ? 'pointer' : 'default' }}
         >
           <img
-            src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
+            src={logoUrl || '/images/logos/codemate-brand-logo.png'}
             alt="Logo"
             className="sm-logo-img"
             draggable={false}

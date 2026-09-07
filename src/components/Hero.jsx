@@ -79,7 +79,7 @@ const Hero = () => {
       <img
         ref={revealImgRef}
         className="hero-reveal-img"
-        src="/images/sot4.png"
+        src="/images/heroes/nehu-school-of-technology.png"
         alt="NEHU School of Technology"
       />
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
-import BrandLogo from "../assets/BrandLogo.png";
+const BrandLogo = "/images/logos/codemate-brand-logo.png";
 
 const InstagramIcon = ({ size = 22, className = "" }) => (
   <svg
@@ -165,7 +165,7 @@ export default function Footer() {
               className="group block relative overflow-hidden rounded-2xl border border-zinc-200/80 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <img
-                src="/images/footer-map.png"
+                src="/images/ui/footer-campus-map.png"
                 alt="School of Technology, NEHU Shillong Map"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
               />

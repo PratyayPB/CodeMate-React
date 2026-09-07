@@ -7,7 +7,7 @@
 import { useState } from "react";
 import { Menu, X, Hexagon } from "lucide-react";
 import Button from "./Button";
-import Logo from "../assets/BrandLogo.png";
+const Logo = "/images/logos/codemate-brand-logo.png";
 const Navbar = ({ currentPage = "resources", setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
 

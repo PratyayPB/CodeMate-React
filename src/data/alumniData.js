@@ -7,7 +7,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2021-2025)",
     currentRole: "ML Data Associate",
     company: "Amazon",
-    image: "/profile-pictures/Gowtama.jpg",
+    image: "/images/alumni/gowtham-siddartha.jpg",
   },
   {
     id: "3ab9cfb0-8a2e-4782-bf4c-1cad343d2408",
@@ -16,7 +16,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2020-2024)",
     currentRole: "Product Manager",
     company: "YouTube",
-    image: "/profile-pictures/Monsurpng.png",
+    image: "/images/alumni/monsur-saikia.png",
   },
   {
     id: "27789334-4e83-4bf4-b7cc-0602aee60ded",
@@ -25,7 +25,7 @@ export const placementList = [
     engineeringDegree: "B.Tech ECE (2021-2025)",
     currentRole: "Member of Technical Team",
     company: "GeeksforGeeks",
-    image: "/profile-pictures/aradhya-jha.jpg",
+    image: "/images/alumni/aradhya-jha.jpg",
   },
   {
     id: "adc8a3af-42be-47dc-92b5-a4b77f8a95b0",
@@ -34,7 +34,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2018-2022)",
     currentRole: "Software Developer",
     company: "Standard Chartered Bank",
-    image: "/profile-pictures/Kriti_Jhajpg.jpg",
+    image: "/images/alumni/kirti-jha.jpg",
   },
   {
     id: "2baebd24-ee89-4b21-878c-e2b0b3717622",
@@ -43,7 +43,7 @@ export const placementList = [
     engineeringDegree: "B.Tech BME (2021-2025)",
     currentRole: "Software Engineer",
     company: "DRDO",
-    image: "/profile-pictures/Aryan-raj.png",
+    image: "/images/alumni/aryan-raj.png",
   },
   {
     id: "37e90030-b08e-43ac-be1e-e04eabcc4bc7",
@@ -52,7 +52,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2017-2021)",
     currentRole: "Senior Data Scientist",
     company: "PwC",
-    image: "/profile-pictures/Manjit-royjpg.jpg",
+    image: "/images/alumni/manjit-roy.jpg",
   },
   {
     id: "d3e4fbda-caa2-4d94-b2ad-f005b6bbe310",
@@ -61,7 +61,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2013-2017)",
     currentRole: "Lead Consultant",
     company: "Genpact",
-    image: "/profile-pictures/Alfazjpg.jpg",
+    image: "/images/alumni/md-afzal-hassan.jpg",
   },
   {
     id: "1695100c-fb6b-45b4-a8a6-bffad0a1366f",
@@ -70,7 +70,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2021-2025)",
     currentRole: "Software Engineer (GenAI/LLM)",
     company: "Pursuit Software",
-    image: "/profile-pictures/Neha-nathjpg.jpg",
+    image: "/images/alumni/neha-nath.jpg",
   },
 
   {
@@ -80,7 +80,7 @@ export const placementList = [
     engineeringDegree: "B.Tech",
     currentRole: "Technical Lead",
     company: "Tech Mahindra",
-    image: "/profile-pictures/Rijumanijpg.jpg",
+    image: "/images/alumni/rijumani-deka.jpg",
   },
   {
     id: "a670393d-f87b-419b-8654-cd88dbc7e03f",
@@ -89,7 +89,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2021-2025)",
     currentRole: "Data Engineer - BTSA",
     company: "ZS",
-    image: "/profile-pictures/Abhishek-raijpg.jpg",
+    image: "/images/alumni/abhishek-kumar-rai.jpg",
   },
 
   {
@@ -99,7 +99,7 @@ export const placementList = [
     engineeringDegree: "B.Tech ENE (2021-2025)",
     currentRole: "Graduate Engineer Trainee",
     company: "Saatvik Solar",
-    image: "/profile-pictures/Devanshi.jpg",
+    image: "/images/alumni/devanshi-sanganeria.jpg",
   },
 
   {
@@ -109,7 +109,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2016-2020)",
     currentRole: "Senior Software Engineer",
     company: "Everbridge",
-    image: "/profile-pictures/Mrinmoy.jpg",
+    image: "/images/alumni/mrinmoy-debnath.jpg",
   },
   {
     id: "90f5f03f-ecda-4f01-acb1-b448449fdd31",
@@ -118,7 +118,7 @@ export const placementList = [
     engineeringDegree: "B.Tech ECE (2011-2015)",
     currentRole: "Project Manager",
     company: "Philips",
-    image: "/profile-pictures/Ipshita.jpg",
+    image: "/images/alumni/ipshita-bose.jpg",
   },
   {
     id: "8f66c7b9-1e5c-4fb2-9de7-6ebafc9ae765",
@@ -127,7 +127,7 @@ export const placementList = [
     engineeringDegree: "B.Tech IT (2016-2020)",
     currentRole: "Senior Software Engineer",
     company: "HSBC",
-    image: "/profile-pictures/Yusuf.jpg",
+    image: "/images/alumni/yusuf-humayun.jpg",
   },
 ];
 
@@ -139,7 +139,7 @@ export const higherStudiesIndiaList = [
     engineeringDegree: "B.Tech IT (2021-2025)",
     program: "PhD, Information Systems",
     institution: "IIT Roorkee",
-    image: "/profile-pictures/harsh.png",
+    image: "/images/alumni/harsh-pandey.png",
   },
   {
     id: "c5cc7e16-ab99-4d3e-9ca6-2dcb23e82fd7",
@@ -148,7 +148,7 @@ export const higherStudiesIndiaList = [
     engineeringDegree: "B.Tech IT (2020-2024)",
     program: "M.Tech Electronics & Communications",
     institution: "NIT Rourkela",
-    image: "/profile-pictures/pravinkumar.png",
+    image: "/images/alumni/pravin-kumar-mahato.png",
   },
   {
     id: "3c619932-0ef9-4164-8233-fe13e3f2540d",
@@ -157,7 +157,7 @@ export const higherStudiesIndiaList = [
     engineeringDegree: "B.Tech (2007-2011)",
     program: "PhD, Data Science and Artifical Intelligence",
     institution: "IIIT Dharwad",
-    image: "/profile-pictures/laishram.jpg",
+    image: "/images/alumni/laishram-rahul.jpg",
   },
   {
     id: "4787cf7d-7361-49f2-a454-6f0eacb3e280",
@@ -166,7 +166,7 @@ export const higherStudiesIndiaList = [
     engineeringDegree: "B.Tech IT (2021-2025)",
     program: "PhD, AI/ML",
     institution: "MNIT, Nagpur",
-    image: "/profile-pictures/abhinitnaware.jpg",
+    image: "/images/alumni/abhi-nitnaware.jpg",
   },
   {
     id: "35cc62c7-2e4a-40df-997c-36d115ab8c85",
@@ -187,7 +187,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech IT (2011-2015)",
     program: "Post Doctoral Fellow",
     institution: "Khalifa University, Abu Dhabi, UAE",
-    image: "/profile-pictures/mehbub.jpg",
+    image: "/images/alumni/mehbub-alam.jpg",
   },
   {
     id: "58002b62-930f-440a-983b-c92bae323cf6",
@@ -196,7 +196,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech IT (2011-2015)",
     program: "Post Doctoral Research Fellow",
     institution: "University of Calabria, Italy",
-    image: "/profile-pictures/rahul-amin.jpg",
+    image: "/images/alumni/ruhul-amin-hazarika.jpg",
   },
   {
     id: "bbd73917-eaf9-42ce-982d-f95091e04644",
@@ -205,7 +205,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech BME (2014-2018)",
     program: "MEngg. Biomedical",
     institution: "University College Dublin, Ireland",
-    image: "/profile-pictures/dhritica-borah.jpg",
+    image: "/images/alumni/dhritica-bora.jpg",
   },
   {
     id: "82c49a07-799e-4c0c-97ab-51f1bc29f536",
@@ -214,7 +214,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech BME (2016-2020)",
     program: "MSc Biomedical Engineering (Medical Imaging)",
     institution: "University of Groningen, Netherlands (2022-2025)",
-    image: "/profile-pictures/sudarshana.jpg",
+    image: "/images/alumni/sudarshana-barman.jpg",
   },
   {
     id: "c6fe38fb-1d0b-41c8-ad36-23d9359dd077",
@@ -223,7 +223,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech IT (2020-2024)",
     program: "MS - Artificial Intelligence",
     institution: "University of Southampton",
-    image: "/profile-pictures/bishalpandey.png",
+    image: "/images/alumni/bishal-pandey.png",
   },
   {
     id: "b4602383-79d7-4632-b39c-f5ce1571aa8a",
@@ -232,7 +232,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech ECE (2019-2023)",
     program: "MS - Electrical Engineering",
     institution: "University of Pennsylvania",
-    image: "/profile-pictures/indrani-paul.jpg",
+    image: "/images/alumni/indrani-paul-roy.jpg",
   },
   {
     id: "11038e4e-9e2d-49b5-a742-47ed0c2eddfc",
@@ -241,7 +241,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech ECE (2013-2017)",
     program: "Masters in Management",
     institution: "Technical University of Munich",
-    image: "/profile-pictures/ananyabordoloi.jpg",
+    image: "/images/alumni/ananya-bordoloi.jpg",
   },
   {
     id: "c9bbd6fb-74a8-4969-9c06-480409a2c561",
@@ -250,7 +250,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech IT (2020-2024)",
     program: "MSc - Artificial Intelligence",
     institution: "University of St. Andrews, Scotland",
-    image: "/profile-pictures/pranjalsinha.jpg",
+    image: "/images/alumni/pranjal-sinha.jpg",
   },
   {
     id: "427a4d9a-44b8-44a7-823c-5558e545db54",
@@ -259,7 +259,7 @@ export const abroadList = [
     engineeringDegree: "B.Tech ECE (2009-2013)",
     program: "Post Doctoral Fellow",
     institution: "University of Munster, Germany",
-    image: "/profile-pictures/paromita.jpg",
+    image: "/images/alumni/paromita-bhattacharjee.jpg",
   },
 ];
 
@@ -271,7 +271,7 @@ export const entrepreneurList = [
     engineeringDegree: "B.Tech IT (2022-2025)",
     company: "HydroSec Quantum Technologies",
     role: "Founder",
-    image: "/profile-pictures/masoomul.jpg",
+    image: "/images/alumni/masoomul-haque.jpg",
   },
   {
     id: "be226252-69c2-42d8-89a4-eb03e8990bf3",
@@ -280,7 +280,7 @@ export const entrepreneurList = [
     engineeringDegree: "B.Tech IT (2020-2023)",
     company: "Waplify",
     role: "Founder",
-    image: "/profile-pictures/dipanga.jpg",
+    image: "/images/alumni/dipangka-kalita.jpg",
   },
 ];
 

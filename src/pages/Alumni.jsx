@@ -99,7 +99,7 @@ const Alumni = () => {
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
             <div className="relative p-2.5 bg-white rounded-2xl border border-zinc-200/60 shadow-2xl shadow-brand-primary/5 max-w-[500px] w-full transform hover:scale-[1.02] transition-transform duration-300">
               <img
-                src="/Codemate-group-picture.jpg"
+                src="/images/team/codemate-team-group.jpg"
                 alt="SCET Alumni Network Group"
                 loading="lazy"
                 className="rounded-xl w-full h-auto object-cover aspect-[3/2] filter grayscale"

@@ -8,7 +8,7 @@ const eventsData = [
   {
     eventId: 6,
     tag: "Webinar",
-    img: "/assets/resume/21.jpg",
+    img: "/images/events/resume-webinar/resume-webinar-cover.jpg",
     date: "Sun 12 Apr 2026",
     location: "Online",
     title: "Resume Building Webinar",
@@ -17,7 +17,7 @@ const eventsData = [
   {
     eventId: 5,
     tag: "Coding Competition",
-    img: "/assets/codefest3/17.jpeg",
+    img: "/images/events/codefest-3/codefest-3-cover.jpeg",
     date: "Sun 10 Nov 2025",
     location: "Offline",
     title: "Codefest 3.0",
@@ -26,7 +26,7 @@ const eventsData = [
   {
     eventId: 3,
     tag: "Orientation",
-    img: "/assets/orientation1/9.png",
+    img: "/images/events/orientation-2023/orientation-2023-cover.png",
     date: "Sun 10 Sep 2025",
     location: "Offline",
     title: "Orientation 2025",
@@ -35,7 +35,7 @@ const eventsData = [
   {
     eventId: 4,
     tag: "Sports/E-Sports",
-    img: "/assets/hostelhavoc/13.jpg",
+    img: "/images/events/hostel-havoc/hostel-havoc-cover.jpg",
     date: "Sun 16 May 2025",
     location: "Offline",
     title: "Hostel Havoc",

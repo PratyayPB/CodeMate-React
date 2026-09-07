@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import StaggeredMenu from "./components/ui/StaggeredMenu";
-import Logo from "./assets/BrandLogo.png";
+const Logo = "/images/logos/codemate-brand-logo.png";
 import LandingPage from "./pages/LandingPage";
 import Resources from "./pages/Resources";
 import Alumni from "./pages/Alumni";
